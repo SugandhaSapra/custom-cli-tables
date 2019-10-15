@@ -4,11 +4,11 @@ import org.junit.Test;
 
 public class XTableTest {
 
-    @Test
+    /*@Test
     public void should_create_empty_table()
     {
-      /*  XTable xTable=new XTable(1,1);
-        xTable.printTable();*/
+      XTable xTable=new XTable(1,1);
+        xTable.p
     }
-
+*/
 }

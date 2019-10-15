@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4dced786-88e5-4edc-aa10-4f059bf1acdc" name="Default Changelist" comment="committed empty class file issue #6">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/XTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/XTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableGraphicsConst.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/XTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/xebia/fs101/xtable/XTable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/xebia/fs101/xtable/XTable.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,6 +19,7 @@
       <list>
         <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -64,9 +69,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.XTable">
-    <configuration name="XTable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.XTable" />
+  <component name="RunManager">
+    <configuration name="TableGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableGenerator" />
       <module name="xtable" />
       <extension name="coverage">
         <pattern>
@@ -78,7 +83,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="XTableTest.should_create_empty_table" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TableGeneratorTest.should_create_empty_table" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xtable" />
       <extension name="coverage">
         <pattern>
@@ -87,7 +92,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
-      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.XTableTest" />
+      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableGeneratorTest" />
       <option name="METHOD_NAME" value="should_create_empty_table" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -143,8 +148,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.XTable" />
-        <item itemvalue="JUnit.XTableTest.should_create_empty_table" />
+        <item itemvalue="JUnit.TableGeneratorTest.should_create_empty_table" />
+        <item itemvalue="Application.TableGenerator" />
       </list>
     </recent_temporary>
   </component>

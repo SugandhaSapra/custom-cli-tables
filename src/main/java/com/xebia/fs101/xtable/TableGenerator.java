@@ -5,7 +5,7 @@ public class TableGenerator implements TableGraphicsConst{
     private int rows;
     private int columns;
     private int columnWidth;
-    TableGenerator(int rows, int columns)
+    public TableGenerator(int rows, int columns)
     {
         this.rows=rows;
         this.columns=columns;
@@ -60,4 +60,8 @@ public class TableGenerator implements TableGraphicsConst{
                 System.out.print(mid);
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> f2667c0492f6debdfc63fa7f12ed00fe562fc013

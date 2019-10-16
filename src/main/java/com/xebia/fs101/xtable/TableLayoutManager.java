@@ -78,5 +78,9 @@ public class TableLayoutManager {
         return tableData.toString();
 
     }
+    public String renderTable() {
+        return this.getTopLine() + this.getTableData() + this.getBottomLine();
+    }
+
 
 }

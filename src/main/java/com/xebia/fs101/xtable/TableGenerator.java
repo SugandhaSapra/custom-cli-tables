@@ -1,13 +1,14 @@
 package com.xebia.fs101.xtable;
 
-public class TableGenerator implements TableGraphicsConst{
+public class Table {
 
     int rows;
     int columns;
+
     int columnWidth;
     String data="Nimrat";
     int cellWidth=10;
-    TableGenerator(int rows, int columns)
+    Table(int rows, int columns)
     {
         this.rows=rows;
         this.columns=columns;

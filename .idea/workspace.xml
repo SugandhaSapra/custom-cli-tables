@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d604f38-8ad5-4b7d-afd2-186c687730c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableGraphicsConst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableGraphicsConst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/com/xebia/fs101/xtable/XTableTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableGeneratorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableGeneratorTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -188,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571121063578</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added logic for printing data in table issue #7">
+      <created>1571207562933</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1571207562933</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,6 +209,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="committed empty class file issue #6" />
-    <option name="LAST_COMMIT_MESSAGE" value="committed empty class file issue #6" />
+    <MESSAGE value="added logic for printing data in table issue #7" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logic for printing data in table issue #7" />
   </component>
 </project>

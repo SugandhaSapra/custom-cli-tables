@@ -5,6 +5,8 @@ public class TableGenerator implements TableGraphicsConst{
     int rows;
     int columns;
     int columnWidth;
+    String data="Nimrat";
+    int cellWidth=10;
     TableGenerator(int rows, int columns)
     {
         this.rows=rows;
@@ -16,6 +18,34 @@ public class TableGenerator implements TableGraphicsConst{
         printTopLine();
         printMidLines();
         printBottomLine();
+    }
+    public void printData() {
+        int len=cellWidth-data.length()-2;
+        for(int i=1;i<columns*cellWidth;i++)
+        {
+            if(i==1) {
+                System.out.print("| " + data);
+                int temp=len;
+                while(temp>0)
+                {
+                    temp--;
+                    System.out.print(" ");
+                }
+                System.out.print("");
+            }
+            else if(i%cellWidth==0) {
+                int temp=len;
+                System.out.print("| " + data);
+                while(temp>0)
+                {
+                    temp--;
+                    System.out.print(" ");
+                }
+            }
+
+        }
+        System.out.print("|");
+
     }
 
     public void printTopLine() {
@@ -30,6 +60,8 @@ public class TableGenerator implements TableGraphicsConst{
             else
                 System.out.print(mid);
         }
+        System.out.println();
+        printData();
     }
 
     public void printMidLines() {
@@ -43,6 +75,8 @@ public class TableGenerator implements TableGraphicsConst{
                     System.out.print(mid);
             }
             System.out.print(rightMid);
+            System.out.println();
+            printData();
         }
         System.out.println();
     }

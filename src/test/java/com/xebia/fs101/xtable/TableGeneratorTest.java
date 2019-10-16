@@ -7,7 +7,7 @@ public class TableGeneratorTest {
     @Test
     public void should_create_empty_table()
     {
-        TableGenerator tableGenerator=new TableGenerator(2,1);
+        TableGenerator tableGenerator=new TableGenerator(4,6);
         tableGenerator.printTable();
 
     }

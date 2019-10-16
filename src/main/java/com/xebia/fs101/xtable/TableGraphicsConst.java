@@ -12,4 +12,5 @@ public interface TableGraphicsConst {
     String leftMid="├";
     String rightMid="┤";
     String midMid="┼";
+    String paddingLeft="  ";
 }

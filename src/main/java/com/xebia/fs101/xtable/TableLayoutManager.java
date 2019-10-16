@@ -8,7 +8,7 @@ public class TableLayoutManager {
     private int colCount;
 
     TableLayoutManager(int rowCount, int colCount) {
-        tableWidth = TableConst.maxColWidth * colCount;
+        tableWidth = TableConstants.maxColWidth * colCount;
         this.rowCount = rowCount;
         this.colCount = colCount;
     }
@@ -17,13 +17,13 @@ public class TableLayoutManager {
         StringBuilder top = new StringBuilder();
         for (int i = 1; i <= tableWidth; i++) {
             if (i == 1)
-                top.append(TableConst.topLeft);
+                top.append(TableConstants.topLeft);
             if (i == tableWidth)
-                top.append(TableConst.topRight);
-            else if (i % TableConst.maxColWidth == 0)
-                top.append(TableConst.topMiddle);
+                top.append(TableConstants.topRight);
+            else if (i % TableConstants.maxColWidth == 0)
+                top.append(TableConstants.topMiddle);
             else
-                top.append(TableConst.mid);
+                top.append(TableConstants.mid);
         }
         return top.toString();
 
@@ -34,27 +34,27 @@ public class TableLayoutManager {
         bottom.append("\n");
         for (int i = 1; i <= tableWidth; i++) {
             if (i == 1)
-                bottom.append(TableConst.bottomLeft);
+                bottom.append(TableConstants.bottomLeft);
             if (i == tableWidth)
-                bottom.append(TableConst.bottomRight);
-            else if (i % TableConst.maxColWidth == 0)
-                bottom.append(TableConst.bottomMiddle);
+                bottom.append(TableConstants.bottomRight);
+            else if (i % TableConstants.maxColWidth == 0)
+                bottom.append(TableConstants.bottomMiddle);
             else
-                bottom.append(TableConst.mid);
+                bottom.append(TableConstants.mid);
         }
         return bottom.toString();
     }
 
     public String getRowSeparator() {
         StringBuilder rowSeparator = new StringBuilder();
-        rowSeparator.append("\n" + TableConst.leftMid);
+        rowSeparator.append("\n" + TableConstants.leftMid);
         for (int i = 1; i < tableWidth; i++) {
-            if (i % TableConst.maxColWidth == 0)
-                rowSeparator.append(TableConst.midMid);
+            if (i % TableConstants.maxColWidth == 0)
+                rowSeparator.append(TableConstants.midMid);
             else
-                rowSeparator.append(TableConst.mid);
+                rowSeparator.append(TableConstants.mid);
         }
-        rowSeparator.append(TableConst.rightMid);
+        rowSeparator.append(TableConstants.rightMid);
         return rowSeparator.toString();
     }
 
@@ -62,14 +62,14 @@ public class TableLayoutManager {
         StringBuilder tableData = new StringBuilder();
 
         for (int j = 1; j <= rowCount; j++) {
-            tableData.append("\n" + TableConst.verticalSeparator);
+            tableData.append("\n" + TableConstants.verticalSeparator);
             for (int i = 1; i < tableWidth; i++) {
-                if (i % TableConst.maxColWidth == 0)
-                    tableData.append(TableConst.verticalSeparator);
+                if (i % TableConstants.maxColWidth == 0)
+                    tableData.append(TableConstants.verticalSeparator);
                 else
                     tableData.append(" ");
             }
-            tableData.append(TableConst.verticalSeparator);
+            tableData.append(TableConstants.verticalSeparator);
             if (j == rowCount)
                 break;
             tableData.append(getRowSeparator());

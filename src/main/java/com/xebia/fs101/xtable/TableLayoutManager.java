@@ -13,7 +13,7 @@ public class TableLayoutManager {
         this.colCount = colCount;
     }
 
-    public String getTopLine() {
+    private String createTopLine() {
         StringBuilder top = new StringBuilder();
         for (int i = 1; i <= tableWidth; i++) {
             if (i == 1)
@@ -29,7 +29,7 @@ public class TableLayoutManager {
 
     }
 
-    public String getBottomLine() {
+    private String createBottomLine() {
         StringBuilder bottom = new StringBuilder();
         bottom.append("\n");
         for (int i = 1; i <= tableWidth; i++) {
@@ -45,7 +45,7 @@ public class TableLayoutManager {
         return bottom.toString();
     }
 
-    public String getRowSeparator() {
+    private String createRowSeparator() {
         StringBuilder rowSeparator = new StringBuilder();
         rowSeparator.append("\n" + TableConstants.leftMid);
         for (int i = 1; i < tableWidth; i++) {
@@ -58,7 +58,7 @@ public class TableLayoutManager {
         return rowSeparator.toString();
     }
 
-    public String getTableData() {
+    private String createTabularStruct() {
         StringBuilder tableData = new StringBuilder();
 
         for (int j = 1; j <= rowCount; j++) {
@@ -72,14 +72,14 @@ public class TableLayoutManager {
             tableData.append(TableConstants.verticalSeparator);
             if (j == rowCount)
                 break;
-            tableData.append(getRowSeparator());
+            tableData.append(createRowSeparator());
         }
 
         return tableData.toString();
 
     }
-    public String renderTable() {
-        return this.getTopLine() + this.getTableData() + this.getBottomLine();
+    public String createTable() {
+        return this.createTopLine() + this.createTabularStruct() + this.createBottomLine();
     }
 
 

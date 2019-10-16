@@ -1,6 +1,6 @@
 package com.xebia.fs101.xtable;
 
-public final class TableConst {
+public final class TableConstants {
     public static final String verticalSeparator = "│";
     public static final String topLeft = "┌";
     public static final String topRight = "┐";
@@ -14,7 +14,7 @@ public final class TableConst {
     public static final String midMid = "┼";
     public static final int maxColWidth = 20;
 
-    private TableConst() {
+    private TableConstants() {
 
     }
 }

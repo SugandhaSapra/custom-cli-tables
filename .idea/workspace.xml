@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0d604f38-8ad5-4b7d-afd2-186c687730c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Consts.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableApi.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableConst.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableHeader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableLayoutManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableApiTest.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +71,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TableGeneratorTest">
+  <component name="RunManager" selected="JUnit.TableApiTest">
     <configuration name="TableGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableGenerator" />
       <module name="xtable" />
@@ -76,6 +81,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableApiTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xtable" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xebia.fs101.xtable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
+      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableApiTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -160,6 +180,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TableApiTest" />
         <item itemvalue="JUnit.TableGeneratorTest" />
         <item itemvalue="Application.TableGenerator" />
         <item itemvalue="JUnit.TableGeneratorTest.should_create_empty_table" />

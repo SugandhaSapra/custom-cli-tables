@@ -1,15 +1,15 @@
 package com.xebia.fs101.xtable;
 
-public class TableGenerator implements TableGraphicsConst{
+public class TableGenerator implements TableGraphicsConst {
 
     private int rows;
     private int columns;
     private int columnWidth;
-    public TableGenerator(int rows, int columns)
-    {
-        this.rows=rows;
-        this.columns=columns;
-        columnWidth=10*columns;
+
+    public TableGenerator(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
+        columnWidth = 10 * columns;
     }
 
     public void printTable() {
@@ -60,8 +60,4 @@ public class TableGenerator implements TableGraphicsConst{
                 System.out.print(mid);
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> f2667c0492f6debdfc63fa7f12ed00fe562fc013

@@ -83,4 +83,7 @@ public class TableLayoutManager {
     }
 
 
+    public String getShape() {
+        return rowCount+"X"+colCount;
+    }
 }

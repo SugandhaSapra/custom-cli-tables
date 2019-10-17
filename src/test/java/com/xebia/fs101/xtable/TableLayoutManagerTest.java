@@ -45,5 +45,13 @@ public class TableLayoutManagerTest {
     }
 
 
+    @Test
+    public void should_return_shape_of_table_when_given_valid_data() {
+        TableLayoutManager tableLayoutManager = new TableLayoutManager(3, 4);
+        String actualResult = tableLayoutManager.getShape();
+        String expectedResult = "3X4";
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
 
 }

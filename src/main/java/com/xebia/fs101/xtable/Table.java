@@ -17,7 +17,7 @@ public class Table {
     }
 
     public String getShape() {
-        return rowCount + "X" + colCount;
+        return rowCount + " rows X " + colCount + " cols";
     }
 
     public String generateTable() {

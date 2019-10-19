@@ -10,7 +10,7 @@ public class TableTest {
     public void should_return_shape_of_table_when_given_valid_data() {
         Table table = new Table(3, 4);
         String actualResult = table.getShape();
-        String expectedResult = "3X4";
+        String expectedResult = "3 rows X 4 cols";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 

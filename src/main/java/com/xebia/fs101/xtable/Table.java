@@ -6,8 +6,7 @@ public class Table {
     private int colCount;
     private TableLayoutManager tableLayoutManager;
     private Renderer renderer;
-    private String generatedTable;
-
+    
 
     Table(int rowCount, int colCount) {
         tableLayoutManager = new TableLayoutManager(rowCount, colCount);

@@ -6,7 +6,7 @@ public class Table {
     private int colCount;
     private TableLayoutManager tableLayoutManager;
     private Renderer renderer;
-    
+
 
     Table(int rowCount, int colCount) {
         tableLayoutManager = new TableLayoutManager(rowCount, colCount);
@@ -37,7 +37,7 @@ public class Table {
     }
 
     public void renderTable() {
-        renderer.printTable(tableLayoutManager.createTable());
+        renderer.printTable(generateTable());
     }
 
 

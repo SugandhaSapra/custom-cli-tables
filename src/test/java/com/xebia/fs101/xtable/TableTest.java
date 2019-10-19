@@ -14,6 +14,11 @@ public class TableTest {
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_when_row_count_or_col_count_is_less_than_0() {
+        Table table = new Table(-1, 1);
+    }
+
     @Test
     public void should_create_table_with_no_data_with_for_1_row_and_col() {
         Table table = new Table(1, 1);

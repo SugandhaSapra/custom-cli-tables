@@ -18,6 +18,15 @@ public class Table {
         renderer = new ConsoleBaseRenderer();
     }
 
+    Table(int rowCount, int colCount,Renderer renderer) {
+        tableLayoutManager = new TableLayoutManager(rowCount, colCount);
+        if (rowCount <= 0 || colCount <= 0)
+            throw new IllegalArgumentException("Row and Col should be greater than 0");
+        this.rowCount = rowCount;
+        this.colCount = colCount;
+        renderer = this.renderer;
+    }
+
     public String getShape() {
         return rowCount + " rows X " + colCount + " cols";
     }

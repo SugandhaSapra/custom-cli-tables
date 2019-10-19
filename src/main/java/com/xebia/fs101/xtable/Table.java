@@ -18,7 +18,7 @@ public class Table {
         renderer = new ConsoleBaseRenderer();
     }
 
-    Table(int rowCount, int colCount,Renderer renderer) {
+    Table(int rowCount, int colCount, Renderer renderer) {
         tableLayoutManager = new TableLayoutManager(rowCount, colCount);
         if (rowCount <= 0 || colCount <= 0)
             throw new IllegalArgumentException("Row and Col should be greater than 0");
@@ -32,12 +32,13 @@ public class Table {
     }
 
     public String generateTable() {
-        generatedTable = tableLayoutManager.createTable();
-        return generatedTable;
+
+        return tableLayoutManager.createTable();
+
     }
 
     public void renderTable() {
-        renderer.printTable(generatedTable);
+        renderer.printTable(tableLayoutManager.createTable());
     }
 
 

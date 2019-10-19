@@ -6,7 +6,7 @@ public class Table {
     private int colCount;
     private TableLayoutManager tableLayoutManager;
     private Renderer renderer;
-    private String tableStructure;
+    private String generatedTable;
 
 
     Table(int rowCount, int colCount) {
@@ -21,12 +21,12 @@ public class Table {
     }
 
     public String generateTable() {
-        tableStructure = tableLayoutManager.createTable();
-        return tableStructure;
+        generatedTable = tableLayoutManager.createTable();
+        return generatedTable;
     }
 
     public void renderTable() {
-        renderer.printTable(tableStructure);
+        renderer.printTable(generatedTable);
     }
 
 

@@ -1,9 +1,8 @@
 package com.xebia.fs101.xtable;
 
-import java.util.ArrayList;
 import java.util.List;
 
-public class TableLayoutManager {
+public class HorizontalLayoutManager implements LayoutManager {
 
     private int tableWidth;
     private int rowCount;
@@ -12,10 +11,34 @@ public class TableLayoutManager {
     public static final String ANSI_RED = "\u001B[31m";
 
 
-    TableLayoutManager(int rowCount, int colCount) {
+    HorizontalLayoutManager(int rowCount, int colCount) {
 
         this.rowCount = rowCount;
         this.colCount = colCount;
+
+    }
+
+    public String createTable(List<String[]> rows) {
+
+        colWidth = computeWidth(rows) + 2;
+        tableWidth = colWidth * colCount;
+        return this.createTopLine() + this.createTabularStruct(rows) + this.createBottomLine();
+    }
+
+    public String createTable() {
+
+        tableWidth = TableConstants.maxColWidth * colCount;
+        colWidth = TableConstants.maxColWidth;
+        return this.createTopLine() + this.createTabularStruct() + this.createBottomLine();
+
+    }
+
+
+    public String createTable(String[] headers) {
+
+        colWidth = computeWidth(headers) + 2;
+        tableWidth = colWidth * colCount;
+        return this.createTopLine() + this.createTabularStruct(headers) + this.createBottomLine();
 
     }
 
@@ -100,20 +123,20 @@ public class TableLayoutManager {
             }
         }
         tableHeader.append(createRowSeparator());
-            for (int j = 1; j <= rowCount; j++) {
-                tableHeader.append("\n" + TableConstants.verticalSeparator);
-                for (int i = 1; i < tableWidth; i++) {
-                    if (i % colWidth == 0)
-                        tableHeader.append(TableConstants.verticalSeparator);
-                    else
-                        tableHeader.append(" ");
-                }
-                tableHeader.append(TableConstants.verticalSeparator);
-                if (j == rowCount -1)
-                    break;
-                tableHeader.append(createRowSeparator());
+        for (int j = 1; j <= rowCount; j++) {
+            tableHeader.append("\n" + TableConstants.verticalSeparator);
+            for (int i = 1; i < tableWidth; i++) {
+                if (i % colWidth == 0)
+                    tableHeader.append(TableConstants.verticalSeparator);
+                else
+                    tableHeader.append(" ");
+            }
+            tableHeader.append(TableConstants.verticalSeparator);
+            if (j == rowCount - 1)
+                break;
+            tableHeader.append(createRowSeparator());
 
-                return tableHeader.toString();
+            return tableHeader.toString();
 
         }
 
@@ -147,30 +170,6 @@ public class TableLayoutManager {
     }
 
 
-    public String createTable(List<String[]> rows) {
-
-        colWidth = computeWidth(rows) + 2;
-        tableWidth = colWidth * colCount;
-        return this.createTopLine() + this.createTabularStruct(rows) + this.createBottomLine();
-    }
-
-    public String createTable() {
-
-        tableWidth = TableConstants.maxColWidth * colCount;
-        colWidth = TableConstants.maxColWidth;
-        return this.createTopLine() + this.createTabularStruct() + this.createBottomLine();
-
-    }
-
-
-    public String createTable(String[] headers) {
-
-        colWidth = computeWidth(headers) + 2;
-        tableWidth = colWidth * colCount;
-        return this.createTopLine() + this.createTabularStruct(headers) + this.createBottomLine();
-
-    }
-
     private int computeWidth(String[] headers) {
         int maxWidth = Integer.MIN_VALUE;
 
@@ -178,20 +177,17 @@ public class TableLayoutManager {
             maxWidth = Math.max(maxWidth, header.length());
 
         }
-
         return maxWidth;
     }
 
     private int computeWidth(List<String[]> rows) {
         int maxWidth = Integer.MIN_VALUE;
-
         for (String[] cells : rows) {
             for (int i = 0; i < cells.length; i++) {
 
                 maxWidth = Math.max(maxWidth, cells[i].length());
             }
         }
-
         return maxWidth;
     }
 

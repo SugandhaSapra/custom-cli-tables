@@ -49,6 +49,15 @@ public class TableTest {
 
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_if_headers_are_less_than_cols() {
+        String[] cells={"one","two"};
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(cells).build();
+        table.generateTable(cells);
+
+    }
+
+
     @Test
     public void should_create_table_with_data_rows() {
 
@@ -74,6 +83,38 @@ public class TableTest {
                         "│ flexible  │ pleasant  │ wild      │\n" +
                         "└───────────┴───────────┴───────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_if_colData_is_less_than_colCount() {
+
+        String[] celldata1 = {"one", "two", "three"};
+        String[] celldata2 = {"test", "logic", "user"};
+        String[] celldata3 = {"assumption", "great", "reflection"};
+        String[] celldata4 = {"flexible", "pleasant", "wild"};
+        List<String[]> rowdata = new ArrayList<>();
+        rowdata.add(celldata1);
+        rowdata.add(celldata2);
+        rowdata.add(celldata3);
+        rowdata.add(celldata4);
+        Table table = new Table.Builder().withRowCount(4).withColCount(1).withRows(rowdata).build();
+        table.generateTable(rowdata);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_if_rowData_is_less_than_rowCount() {
+
+        String[] celldata1 = {"one", "two", "three"};
+        String[] celldata2 = {"test", "logic", "user"};
+        String[] celldata3 = {"assumption", "great", "reflection"};
+        String[] celldata4 = {"flexible", "pleasant", "wild"};
+        List<String[]> rowdata = new ArrayList<>();
+        rowdata.add(celldata1);
+        rowdata.add(celldata2);
+        rowdata.add(celldata3);
+        rowdata.add(celldata4);
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withRows(rowdata).build();
+        table.generateTable(rowdata);
     }
 
     @Test

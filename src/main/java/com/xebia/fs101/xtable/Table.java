@@ -7,7 +7,7 @@ public class Table {
 
     private int rowCount;
     private int colCount;
-    private TableLayoutManager tableLayoutManager;
+    private HorizontalLayoutManager horizontalLayoutManager;
     private Renderer renderer;
     private String[] headers;
     private List<String[]> rows = new ArrayList<>();
@@ -15,7 +15,7 @@ public class Table {
 
     public Table(int rowCount, int colCount) {
 
-        tableLayoutManager = new TableLayoutManager(rowCount, colCount);
+        horizontalLayoutManager = new HorizontalLayoutManager(rowCount, colCount);
         if (rowCount <= 0 || colCount <= 0)
             throw new IllegalArgumentException("Row and Col should be greater than 0");
         this.rowCount = rowCount;
@@ -25,36 +25,13 @@ public class Table {
 
     }
 
-    public String generateTable() {
-
-        return tableLayoutManager.createTable();
-
-    }
-    public String generateTable(String[] headers) {
-
-        return tableLayoutManager.createTable(headers);
-
-    }
-    public String generateTable(List<String[]> rows) {
-
-        return tableLayoutManager.createTable(rows);
-
-    }
-    public String generateTable(List<String[]> rows,String[] headers) {
-
-        rows.add(0,headers);
-        return tableLayoutManager.createTable(rows);
-
-    }
-
-
     private Table(Builder builder) {
         rowCount = builder.rowCount;
         colCount = builder.colCount;
-        tableLayoutManager = new TableLayoutManager(rowCount,colCount);
+        horizontalLayoutManager = new HorizontalLayoutManager(rowCount, colCount);
         renderer = builder.renderer;
         rows = builder.rows;
-        headers=builder.headers;
+        headers = builder.headers;
     }
 
 
@@ -63,22 +40,47 @@ public class Table {
     }
 
 
-    public void renderTable() {
-        renderer.printTable(generateTable());
+    public String generateTable() {
+
+        return horizontalLayoutManager.createTable();
+
     }
 
-    public void addRow(String... cells) {
-        for(int i=0;i<rowCount;i++) {
-            rows.add(cells);
-        }
+    public String generateTable(String[] headers) {
 
+        if(headers.length!=colCount)
+            throw new IllegalArgumentException("Please pass according to the number of columns.");
+        return horizontalLayoutManager.createTable(headers);
+
+    }
+
+    public String generateTable(List<String[]> rows) {
+        if(rows.size()!=rowCount)
+            throw new IllegalArgumentException("Please pass according to the number of rows");
+        for(String cells[]:rows){
+            if(cells.length!=colCount)
+                throw new IllegalArgumentException("Please pass according to the number of columns");}
+        return horizontalLayoutManager.createTable(rows);
+
+    }
+
+    public String generateTable(List<String[]> rows, String[] headers) {
+
+        rows.add(0, headers);
+        return horizontalLayoutManager.createTable(rows);
+
+    }
+
+
+    public void renderTable() {
+        renderer.printTable(generateTable());
     }
 
 
     public static final class Builder {
         private int rowCount;
         private int colCount;
-        private TableLayoutManager tableLayoutManager;
+        private HorizontalLayoutManager horizontalLayoutManager;
         private Renderer renderer;
         private List<String[]> rows;
         private String[] headers;
@@ -95,9 +97,9 @@ public class Table {
             colCount = val;
             return this;
         }
-        public  Builder withHeader(String[] val)
-        {
-            headers=val;
+
+        public Builder withHeader(String[] val) {
+            headers = val;
             return this;
         }
 

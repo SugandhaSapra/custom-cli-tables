@@ -6,14 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.Assert.*;
 
-public class TableLayoutManagerTest {
+public class HorizontalLayoutManagerTest {
 
     @Test
     public void should_create_table_empty_table_with_passed_rows_and_cols() {
-        TableLayoutManager tableLayoutManager = new TableLayoutManager(1, 2);
-        String actualResult = tableLayoutManager.createTable();
+        HorizontalLayoutManager horizontalLayoutManager = new HorizontalLayoutManager(1, 2);
+        String actualResult = horizontalLayoutManager.createTable();
         String expectedResult =
                                 "┌───────────────────┬───────────────────┐\n" +
                                 "│                   │                   │\n" +
@@ -23,9 +22,9 @@ public class TableLayoutManagerTest {
 
     @Test
     public void should_create_table_with_header() {
-        TableLayoutManager tableLayoutManager = new TableLayoutManager(2, 3);
+        HorizontalLayoutManager horizontalLayoutManager = new HorizontalLayoutManager(2, 3);
         String[] cells={"one","two","three"};
-        String actualResult = tableLayoutManager.createTable(cells);
+        String actualResult = horizontalLayoutManager.createTable(cells);
         String expectedResult =
                              "┌──────┬──────┬──────┐\n" +
                              "│ one  │ two  │ three│\n" +
@@ -37,7 +36,7 @@ public class TableLayoutManagerTest {
 
     @Test
     public void should_create_table_with_data_rows() {
-        TableLayoutManager tableLayoutManager = new TableLayoutManager(4, 3);
+        HorizontalLayoutManager horizontalLayoutManager = new HorizontalLayoutManager(4, 3);
         String[] cells={"one","two","three"};
         String[] celldata1 = {"one", "two", "three"};
         String[] celldata2 = {"test", "logic", "user"};
@@ -48,7 +47,7 @@ public class TableLayoutManagerTest {
         rowdata.add(celldata2);
         rowdata.add(celldata3);
         rowdata.add(celldata4);
-        String actualResult = tableLayoutManager.createTable(rowdata);
+        String actualResult = horizontalLayoutManager.createTable(rowdata);
         String expectedResult =
                         "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +

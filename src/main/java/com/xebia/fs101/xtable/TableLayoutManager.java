@@ -1,26 +1,32 @@
 package com.xebia.fs101.xtable;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class TableLayoutManager {
 
     private int tableWidth;
     private int rowCount;
     private int colCount;
+    private int colWidth;
+    private List<String[]> rows=new ArrayList<>();
 
     TableLayoutManager(int rowCount, int colCount) {
-        tableWidth = TableConstants.maxColWidth * colCount;
+        //tableWidth = TableConstants.maxColWidth * colCount;
         this.rowCount = rowCount;
         this.colCount = colCount;
+
     }
 
-    public String getTopLine() {
+    private String createTopLine(int tableWidth) {
         StringBuilder top = new StringBuilder();
         for (int i = 1; i <= tableWidth; i++) {
             if (i == 1)
                 top.append(TableConstants.topLeft);
             if (i == tableWidth)
                 top.append(TableConstants.topRight);
-            else if (i % TableConstants.maxColWidth == 0)
+            else if (i % colWidth == 0)
                 top.append(TableConstants.topMiddle);
             else
                 top.append(TableConstants.mid);
@@ -29,7 +35,7 @@ public class TableLayoutManager {
 
     }
 
-    public String getBottomLine() {
+    private String createBottomLine(int tableWidth) {
         StringBuilder bottom = new StringBuilder();
         bottom.append("\n");
         for (int i = 1; i <= tableWidth; i++) {
@@ -37,7 +43,7 @@ public class TableLayoutManager {
                 bottom.append(TableConstants.bottomLeft);
             if (i == tableWidth)
                 bottom.append(TableConstants.bottomRight);
-            else if (i % TableConstants.maxColWidth == 0)
+            else if (i % colWidth == 0)
                 bottom.append(TableConstants.bottomMiddle);
             else
                 bottom.append(TableConstants.mid);
@@ -45,11 +51,11 @@ public class TableLayoutManager {
         return bottom.toString();
     }
 
-    public String getRowSeparator() {
+    private String createRowSeparator(int tableWidth) {
         StringBuilder rowSeparator = new StringBuilder();
         rowSeparator.append("\n" + TableConstants.leftMid);
         for (int i = 1; i < tableWidth; i++) {
-            if (i % TableConstants.maxColWidth == 0)
+            if (i % colWidth == 0)
                 rowSeparator.append(TableConstants.midMid);
             else
                 rowSeparator.append(TableConstants.mid);
@@ -58,29 +64,69 @@ public class TableLayoutManager {
         return rowSeparator.toString();
     }
 
-    public String getTableData() {
+    private String createTabularStruct(List<String[]> rows,int tableWidth) {
         StringBuilder tableData = new StringBuilder();
-
-        for (int j = 1; j <= rowCount; j++) {
+        boolean flag=false;
+        for(int i=0;i<rowCount;i++)
+        {
             tableData.append("\n" + TableConstants.verticalSeparator);
-            for (int i = 1; i < tableWidth; i++) {
-                if (i % TableConstants.maxColWidth == 0)
-                    tableData.append(TableConstants.verticalSeparator);
-                else
-                    tableData.append(" ");
-            }
-            tableData.append(TableConstants.verticalSeparator);
-            if (j == rowCount)
-                break;
-            tableData.append(getRowSeparator());
-        }
+            String[] cells=rows.get(i);
+            for(int j=0;j<cells.length;j++)
+            {
+                for(int k=0;k<colWidth;)
+                {
+                    tableData.append(" ").append(cells[j]);
+                    k=k+cells[j].length()+2;
+                    while(k<colWidth){
+                        tableData.append(" ");
+                        k++;
+                    }
 
+                }
+                tableData.append(TableConstants.verticalSeparator);
+            }
+            if(i== rowCount-1)
+                break;
+            tableData.append(createRowSeparator(tableWidth));
+        }
         return tableData.toString();
 
     }
-    public String renderTable() {
-        return this.getTopLine() + this.getTableData() + this.getBottomLine();
+
+    public String createTable(List<String[]> rows) {
+        colWidth=computeWidth(rows)+2;
+        tableWidth=(colWidth)*colCount;
+        return this.createTopLine(tableWidth) + this.createTabularStruct(rows,tableWidth) + this.createBottomLine(tableWidth);
     }
 
+    public int computeWidth(List<String[]> rows)
+    {
+        int maxWidth=Integer.MIN_VALUE;
 
+        for (String[] cells:rows)
+        {
+            for(int i=0;i<cells.length;i++)
+            {
+
+               maxWidth=Math.max(maxWidth,cells[i].length());
+            }
+        }
+
+        return maxWidth;
+    }
+
+    public static void main(String[] args) {
+        TableLayoutManager tableLayoutManager=new TableLayoutManager(4,3);
+        String[] celldata1={"one", "two", "three"};
+        String[] celldata2={"super", "broccoli", "flexible"};
+        String[] celldata3={"assumption", "announcement", "reflection"};
+        String[] celldata4={"logic", "pleasant", "wild"};
+        List<String[]> rowdata=new ArrayList<>();
+        rowdata.add(celldata1);
+        rowdata.add(celldata2);
+        rowdata.add(celldata3);
+        rowdata.add(celldata4);
+        String table=tableLayoutManager.createTable(rowdata);
+        System.out.println(table);
+           }
 }

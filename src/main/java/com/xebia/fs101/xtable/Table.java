@@ -40,6 +40,13 @@ public class Table {
         return tableLayoutManager.createTable(rows);
 
     }
+    public String generateTable(List<String[]> rows,String[] headers) {
+
+        rows.add(0,headers);
+        return tableLayoutManager.createTable(rows);
+
+    }
+
 
     private Table(Builder builder) {
         rowCount = builder.rowCount;

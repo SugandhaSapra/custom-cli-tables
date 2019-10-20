@@ -76,5 +76,31 @@ public class TableTest {
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
+    @Test
+    public void should_create_table_with_header_row_and_data_rows() {
+
+        String[] celldata1 = {"one", "two", "three"};
+        String[] celldata2 = {"test", "logic", "user"};
+        String[] celldata3 = {"assumption", "great", "reflection"};
+        String[] celldata4 = {"flexible", "pleasant", "wild"};
+        List<String[]> rowdata = new ArrayList<>();
+        rowdata.add(celldata2);
+        rowdata.add(celldata3);
+        rowdata.add(celldata4);
+        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(celldata1).withRows(rowdata).build();
+        String actualResult = table.generateTable(rowdata,celldata1);
+        String expectedResult =
+                        "┌───────────┬───────────┬───────────┐\n" +
+                        "│ one       │ two       │ three     │\n" +
+                        "├───────────┼───────────┼───────────┤\n" +
+                        "│ test      │ logic     │ user      │\n" +
+                        "├───────────┼───────────┼───────────┤\n" +
+                        "│ assumption│ great     │ reflection│\n" +
+                        "├───────────┼───────────┼───────────┤\n" +
+                        "│ flexible  │ pleasant  │ wild      │\n" +
+                        "└───────────┴───────────┴───────────┘";
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
 
 }

@@ -162,6 +162,7 @@ public class TableLayoutManager {
 
     }
 
+
     public String createTable(String[] headers) {
 
         colWidth = computeWidth(headers) + 2;
@@ -193,23 +194,5 @@ public class TableLayoutManager {
 
         return maxWidth;
     }
-
-    public static void main(String[] args) {
-        TableLayoutManager tableLayoutManager = new TableLayoutManager(1, 1);
-        String[] celldata1 = {"one", "two", "three"};
-        String[] celldata2 = {"test", "logic", "user"};
-        String[] celldata3 = {"assumption", "great", "reflection"};
-        String[] celldata4 = {"flexible", "pleasant", "wild"};
-        List<String[]> rowdata = new ArrayList<>();
-        rowdata.add(celldata1);
-        rowdata.add(celldata2);
-        rowdata.add(celldata3);
-        rowdata.add(celldata4);
-        String table = tableLayoutManager.createTable();
-        System.out.println(table);
-        //System.out.println(ANSI_RED + table);
-
-    }
-
 
 }

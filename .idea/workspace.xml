@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0d604f38-8ad5-4b7d-afd2-186c687730c1" name="Default Changelist" comment="">
+    <list default="true" id="e45a5c65-ac86-4dc0-8a62-467609c0af5b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/LayoutManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableLayoutManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableLayoutManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableLayoutManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableLayoutManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/TableLayoutManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/HorizontalLayoutManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableLayoutManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/HorizontalLayoutManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +20,8 @@
       <list>
         <option value="Class" />
         <option value="JUnit4 Test Class" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -69,21 +71,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TableLayoutManager">
-    <configuration name="TableLayoutManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableLayoutManager" />
-      <module name="xtable" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xebia.fs101.xtable.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TableLayoutManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.TableTest.should_throw_exception_if_rowData_is_less_than_rowCount">
+    <configuration name="TableTest.should_create_table_with_header_row_and_data_rows" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xtable" />
       <extension name="coverage">
         <pattern>
@@ -92,29 +81,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
-      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableLayoutManagerTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TableLayoutManagerTest.should_create_table_with_no_data_for_2_row_and_cols" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xtable" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xebia.fs101.xtable.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
-      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableLayoutManagerTest" />
-      <option name="METHOD_NAME" value="should_create_table_with_no_data_for_2_row_and_cols" />
+      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableTest" />
+      <option name="METHOD_NAME" value="should_create_table_with_header_row_and_data_rows" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TableTest.should_throw_exception_if_colData_is_less_than_colCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xtable" />
       <extension name="coverage">
         <pattern>
@@ -124,12 +98,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
       <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="should_throw_exception_if_colData_is_less_than_colCount" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TableTest.should_create_table_with_no_data_for_2_row_and_3cols" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TableTest.should_throw_exception_if_headers_are_less_than_cols" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xtable" />
       <extension name="coverage">
         <pattern>
@@ -139,7 +114,39 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
       <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableTest" />
-      <option name="METHOD_NAME" value="should_create_table_with_no_data_for_2_row_and_3cols" />
+      <option name="METHOD_NAME" value="should_throw_exception_if_headers_are_less_than_cols" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableTest.should_throw_exception_if_rowData_is_less_than_rowCount" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xtable" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xebia.fs101.xtable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
+      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableTest" />
+      <option name="METHOD_NAME" value="should_throw_exception_if_rowData_is_less_than_rowCount" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableTest.should_throw_exception_if_rowData_or_colData_are_less" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xtable" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xebia.fs101.xtable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
+      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableTest" />
+      <option name="METHOD_NAME" value="should_throw_exception_if_rowData_or_colData_are_less" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -194,11 +201,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TableLayoutManager" />
-        <item itemvalue="JUnit.TableLayoutManagerTest.should_create_table_with_no_data_for_2_row_and_cols" />
-        <item itemvalue="JUnit.TableLayoutManagerTest" />
-        <item itemvalue="JUnit.TableTest" />
-        <item itemvalue="JUnit.TableTest.should_create_table_with_no_data_for_2_row_and_3cols" />
+        <item itemvalue="JUnit.TableTest.should_throw_exception_if_rowData_is_less_than_rowCount" />
+        <item itemvalue="JUnit.TableTest.should_throw_exception_if_colData_is_less_than_colCount" />
+        <item itemvalue="JUnit.TableTest.should_throw_exception_if_rowData_or_colData_are_less" />
+        <item itemvalue="JUnit.TableTest.should_throw_exception_if_headers_are_less_than_cols" />
+        <item itemvalue="JUnit.TableTest.should_create_table_with_header_row_and_data_rows" />
       </list>
     </recent_temporary>
   </component>
@@ -248,5 +255,16 @@
     <MESSAGE value="added logic for printing data in table issue #7" />
     <MESSAGE value="Merge branch 'issue-7' of github.com:SugandhaSapra/xtable into issue-6&#10;&#10; Conflicts:&#10;&#9;src/main/java/com/xebia/fs101/xtable/TableLayoutManager.java" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'issue-7' of github.com:SugandhaSapra/xtable into issue-6&#10;&#10; Conflicts:&#10;&#9;src/main/java/com/xebia/fs101/xtable/TableLayoutManager.java" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

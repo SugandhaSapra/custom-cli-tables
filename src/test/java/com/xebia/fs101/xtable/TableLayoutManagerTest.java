@@ -16,13 +16,14 @@ public class TableLayoutManagerTest {
         String[] cells={"one","two"};
         List<String[]> rows=new ArrayList<>();
         rows.add(cells);
-        String actualResult = tableLayoutManager.createTable(rows);
+        String actualResult = tableLayoutManager.createHorizontalTable(rows);
         String expectedResult =
                                 "┌───────────────────┬───────────────────┐\n" +
                                 "│                   │                   │\n" +
                                 "└───────────────────┴───────────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
 
 
 

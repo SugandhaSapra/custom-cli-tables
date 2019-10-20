@@ -9,22 +9,24 @@ public class Table {
     private int colCount;
     private TableLayoutManager tableLayoutManager;
     private Renderer renderer;
-    private List<String[]> rows=new ArrayList<>();;
+    private List<String[]> rows=new ArrayList<>();
+    private TableType tableType;
 
 
-    Table(int rowCount, int colCount) {
+    Table(int rowCount, int colCount,TableType tableType) {
 
         tableLayoutManager = new TableLayoutManager(rowCount, colCount);
         if (rowCount <= 0 || colCount <= 0)
             throw new IllegalArgumentException("Row and Col should be greater than 0");
         this.rowCount = rowCount;
         this.colCount = colCount;
+        this.tableType=tableType;
         renderer = new ConsoleBaseRenderer();
 
 
     }
 
-   /* Table(int rowCount, int colCount, Renderer renderer) {
+    Table(int rowCount, int colCount, Renderer renderer) {
         tableLayoutManager = new TableLayoutManager(rowCount, colCount);
         if (rowCount <= 0 || colCount <= 0)
             throw new IllegalArgumentException("Row and Col should be greater than 0");
@@ -32,7 +34,7 @@ public class Table {
         this.colCount = colCount;
         renderer = this.renderer;
 
-    }*/
+    }
 
     public String getShape() {
         return rowCount + " rows X " + colCount + " cols";
@@ -40,7 +42,9 @@ public class Table {
 
     public String generateTable() {
 
-        return tableLayoutManager.createTable(rows);
+        if(tableType==TableType.HORIZONTAL)
+            return tableLayoutManager.createHorizontalTable(rows);
+        return tableLayoutManager.createVerticalTable(rows);
 
     }
 

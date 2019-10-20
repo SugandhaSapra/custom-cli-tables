@@ -63,13 +63,21 @@ public class TableLayoutManager {
         rowSeparator.append(TableConstants.rightMid);
         return rowSeparator.toString();
     }
-
     private String createTabularStruct(List<String[]> rows,int tableWidth) {
         StringBuilder tableData = new StringBuilder();
         boolean flag=false;
         for(int i=0;i<rowCount;i++)
         {
             tableData.append("\n" + TableConstants.verticalSeparator);
+            if(rows.size()==0) {
+                for(int j=1;j<=colCount;j++){
+                    tableData.append(createRowWithoutData());
+                }
+                if(i== rowCount-1)
+                    break;
+                tableData.append(createRowSeparator(tableWidth));
+                continue;
+            }
             String[] cells=rows.get(i);
             for(int j=0;j<cells.length;j++)
             {
@@ -79,9 +87,8 @@ public class TableLayoutManager {
                     k=k+cells[j].length()+2;
                     while(k<colWidth){
                         tableData.append(" ");
-                        k++;
+                            k++;
                     }
-
                 }
                 tableData.append(TableConstants.verticalSeparator);
             }
@@ -90,12 +97,29 @@ public class TableLayoutManager {
             tableData.append(createRowSeparator(tableWidth));
         }
         return tableData.toString();
+    }
+
+
+
+    private  StringBuilder createRowWithoutData() {
+        StringBuilder cellData=new StringBuilder();
+        for(int k=0;k<colWidth-1;k++)
+        {
+            cellData.append(" ");
+        }
+        cellData.append(TableConstants.verticalSeparator);
+        return cellData;
 
     }
 
-    public String createTable(List<String[]> rows) {
-        colWidth=computeWidth(rows)+2;
+    public String createHorizontalTable(List<String[]> rows) {
+        if(rows.size()==0)
+
+            colWidth=20;
+        else
+            colWidth=computeWidth(rows)+2;
         tableWidth=(colWidth)*colCount;
+        //return  this.createTopLine(tableWidth)+this.createRowSeparator(tableWidth)+this.createBottomLine(tableWidth);
         return this.createTopLine(tableWidth) + this.createTabularStruct(rows,tableWidth) + this.createBottomLine(tableWidth);
     }
 
@@ -126,7 +150,11 @@ public class TableLayoutManager {
         rowdata.add(celldata2);
         rowdata.add(celldata3);
         rowdata.add(celldata4);
-        String table=tableLayoutManager.createTable(rowdata);
+        String table=tableLayoutManager.createHorizontalTable(rowdata);
         System.out.println(table);
            }
+
+    public String createVerticalTable(List<String[]> rows) {
+        return "";
+    }
 }

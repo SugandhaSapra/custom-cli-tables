@@ -71,7 +71,7 @@ public class TableLayoutManager {
             tableData.append("\n" + TableConstants.verticalSeparator);
             if(rows.size()==0) {
                 for(int j=1;j<=colCount;j++){
-                    tableData.append(createRowWithoutData());
+                    tableData.append(createCellWithoutData());
                 }
                 if(i== rowCount-1)
                     break;
@@ -101,7 +101,7 @@ public class TableLayoutManager {
 
 
 
-    private  StringBuilder createRowWithoutData() {
+    private  StringBuilder createCellWithoutData() {
         StringBuilder cellData=new StringBuilder();
         for(int k=0;k<colWidth-1;k++)
         {
@@ -119,10 +119,18 @@ public class TableLayoutManager {
         else
             colWidth=computeWidth(rows)+2;
         tableWidth=(colWidth)*colCount;
-        //return  this.createTopLine(tableWidth)+this.createRowSeparator(tableWidth)+this.createBottomLine(tableWidth);
         return this.createTopLine(tableWidth) + this.createTabularStruct(rows,tableWidth) + this.createBottomLine(tableWidth);
     }
+    public String createVerticalTable(List<String[]> rows) {
+        if(rows.size()==0)
 
+            colWidth=20;
+        else
+            colWidth=computeWidth(rows)+2;
+        tableWidth=(colWidth)*rowCount;
+        return  this.createTopLine(tableWidth)+this.createTabularStruct(rows,tableWidth)+this.createBottomLine(tableWidth);
+
+    }
     public int computeWidth(List<String[]> rows)
     {
         int maxWidth=Integer.MIN_VALUE;
@@ -140,21 +148,22 @@ public class TableLayoutManager {
     }
 
     public static void main(String[] args) {
-        TableLayoutManager tableLayoutManager=new TableLayoutManager(4,3);
-        String[] celldata1={"one", "two", "three"};
-        String[] celldata2={"super", "broccoli", "flexible"};
-        String[] celldata3={"assumption", "announcement", "reflection"};
-        String[] celldata4={"logic", "pleasant", "wild"};
+        TableLayoutManager tableLayoutManager=new TableLayoutManager(3,4);
+        String[] celldata1={"one", "two", "three","four"};
+        String[] celldata2={"super", "broccoli", "flexible","tomato"};
+        String[] celldata3={"assumption", "announcement", "reflection","render"};
+        //String[] celldata4={"logic", "pleasant", "wild"};
         List<String[]> rowdata=new ArrayList<>();
         rowdata.add(celldata1);
         rowdata.add(celldata2);
         rowdata.add(celldata3);
-        rowdata.add(celldata4);
-        String table=tableLayoutManager.createHorizontalTable(rowdata);
-        System.out.println(table);
-           }
-
-    public String createVerticalTable(List<String[]> rows) {
-        return "";
+       // rowdata.add(celldata4);
+        String horizontalTable=tableLayoutManager.createHorizontalTable(rowdata);
+        String verticalTable=tableLayoutManager.createVerticalTable(rowdata);
+        System.out.println(horizontalTable);
+        System.out.println(verticalTable);
     }
+
+
+
 }

@@ -42,9 +42,9 @@ public class Table {
 
     public String generateTable() {
 
-        if(tableType==TableType.HORIZONTAL)
-            return tableLayoutManager.createHorizontalTable(rows);
-        return tableLayoutManager.createVerticalTable(rows);
+        if(tableType==TableType.VERTICAL)
+            return tableLayoutManager.createVerticalTable(rows);
+        return tableLayoutManager.createHorizontalTable(rows);
 
     }
 

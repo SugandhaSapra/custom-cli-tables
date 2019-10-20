@@ -17,10 +17,11 @@ public class TableLayoutManagerTest {
         List<String[]> rows=new ArrayList<>();
         rows.add(cells);
         String actualResult = tableLayoutManager.createHorizontalTable(rows);
+        System.out.println(actualResult);
         String expectedResult =
-                                "┌───────────────────┬───────────────────┐\n" +
-                                "│                   │                   │\n" +
-                                "└───────────────────┴───────────────────┘";
+                    "┌────┬────┐\n"+
+                    "│ one│ two│\n"+
+                    "└────┴────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 

@@ -9,9 +9,9 @@ public class VerticalLayoutManager implements LayoutManager {
     private int colCount;
     private int colWidth;
 
-    VerticalLayoutManager (int rowCount,int colCount){
-        this.rowCount=rowCount;
-        this.colCount=colCount;
+    VerticalLayoutManager(int rowCount, int colCount) {
+        this.rowCount = rowCount;
+        this.colCount = colCount;
     }
 
     @Override
@@ -20,21 +20,23 @@ public class VerticalLayoutManager implements LayoutManager {
         colWidth = TableConstants.maxColWidth;
         return this.createTopLine() + this.createTabularStruct() + this.createBottomLine();
     }
-    public String createTable(List<String[]> rows) {
+
+    @Override
+    public String createDataTable(List<String[]> rows) {
 
         colWidth = computeWidth(rows) + 2;
-        System.out.println(colWidth);
         tableWidth = colWidth * colCount;
-        return this.createTopLine() + this.createTabularStruct(rows,colWidth) + this.createBottomLine();
+        return this.createTopLine() + this.createTabularStruct(rows) + this.createBottomLine();
     }
-    public String createTable(String[] headers) {
+
+    @Override
+    public String createTableWithOnlyHeaders(String[] headers) {
 
         colWidth = computeWidth(headers) + 2;
         tableWidth = (colWidth) * colCount;
-        return this.createTopLine() + this.createTabularStruct(headers,colWidth) + this.createBottomLine();
+        return this.createTopLine() + this.createTabularStruct(headers) + this.createBottomLine();
 
     }
-
 
 
     private int computeWidth(String[] headers) {
@@ -43,6 +45,17 @@ public class VerticalLayoutManager implements LayoutManager {
         for (String header : headers) {
             maxWidth = Math.max(maxWidth, header.length());
 
+        }
+        return maxWidth;
+    }
+
+    private int computeWidth(List<String[]> rows) {
+        int maxWidth = Integer.MIN_VALUE;
+        for (String[] cells : rows) {
+            for (int i = 0; i < cells.length; i++) {
+
+                maxWidth = Math.max(maxWidth, cells[i].length());
+            }
         }
         return maxWidth;
     }
@@ -62,21 +75,8 @@ public class VerticalLayoutManager implements LayoutManager {
         return top.toString();
 
     }
-    private String createTopLine(int cellWidth)
-    {
-        StringBuilder top=new StringBuilder();
-        top.append(TableConstants.topLeft);
-        for(int i=1;i<=colCount;i++) {
-            for(int j=1;j<cellWidth;j++) {
-                    top.append(TableConstants.mid);
-            }
-            if(i!=colCount)
-            top.append(TableConstants.topMiddle);
-        }
-        top.append(TableConstants.topRight);
 
-        return top.toString();
-    }
+
     private String createBottomLine() {
         StringBuilder bottom = new StringBuilder();
         bottom.append("\n");
@@ -92,9 +92,9 @@ public class VerticalLayoutManager implements LayoutManager {
         }
         return bottom.toString();
     }
+
     private String createTabularStruct() {
         StringBuilder tableData = new StringBuilder();
-
         for (int j = 1; j <= rowCount; j++) {
             tableData.append("\n" + TableConstants.verticalSeparator);
             for (int i = 1; i < tableWidth; i++) {
@@ -113,97 +113,69 @@ public class VerticalLayoutManager implements LayoutManager {
 
     }
 
-    private int computeWidth(List<String[]> rows) {
-        int maxWidth = Integer.MIN_VALUE;
-        for (String[] cells : rows) {
-            for (int i = 0; i < cells.length; i++) {
 
-                maxWidth = Math.max(maxWidth, cells[i].length());
-            }
-        }
-        return maxWidth;
-    }
-    private String createTabularStruct(String[] headers,int cellWidth) {
+    private String createTabularStruct(String[] headers) {
         StringBuilder tableHeader = new StringBuilder();
-        //tableHeader.append("\n" + TableConstants.verticalSeparator);
-        //int cellWidth=computeWidth(headers);
-        int count=0;
+        int count = 0;
         for (int i = 1; i <= rowCount; i++) {
             for (int j = 1; j <= colCount; j++) {
-                if(j==1)
-                {
-                    tableHeader.append("\n" +createCellWithData(cellWidth,headers[count++]));
-                }
-                else
-                    tableHeader.append(createCellWithoutData(cellWidth));
+                if (j == 1) {
+                    tableHeader.append("\n" + createCellWithData(headers[count++]));
+                } else
+                    tableHeader.append(createCellWithoutData());
 
             }
             tableHeader.append(TableConstants.verticalSeparator);
-            if(i!=rowCount)
-            tableHeader.append(createRowSeparator());
+            if (i != rowCount)
+                tableHeader.append(createRowSeparator());
         }
         return tableHeader.toString();
     }
 
-    private String createTabularStruct(List<String[]> data,int cellWidth) {
+    private String createTabularStruct(List<String[]> data) {
         StringBuilder tableData = new StringBuilder();
-        //int cellWidth=computeWidth(data.get(0));
-        //System.out.println("Cell width is "+cellWidth);
-        String[] headers=data.get(0);
-        int count=0;
-        for(int i=0;i<rowCount;i++)
-        {
-            int k=0;
-            String[] row=data.get(i+1);
-            for(int j=0;j<colCount;j++)
-            {
-                if(j==0)
-                {
-                    tableData.append("\n" +createCellWithData(cellWidth,headers[count++]));
-                }
-                else
-                    tableData.append(createCellWithData(cellWidth,row[k++]));
+        String[] headers = data.get(0);
+        int count = 0;
+        for (int i = 0; i < rowCount; i++) {
+            int k = 0;
+            String[] row = data.get(i + 1);
+            for (int j = 0; j < colCount; j++) {
+                if (j == 0) {
+                    tableData.append("\n" + createCellWithData(headers[count++]));
+                } else
+                    tableData.append(createCellWithData(row[k++]));
 
             }
             tableData.append(TableConstants.verticalSeparator);
-            if(i!=rowCount-1)
+            if (i != rowCount - 1)
                 tableData.append(createRowSeparator());
         }
         return tableData.toString();
 
     }
-    public StringBuilder createCellWithData(int cellWidth,String data) {
-        StringBuilder builder=new StringBuilder();
-        builder.append(TableConstants.verticalSeparator+" ");
-        int spaceLeft=cellWidth-data.length();
-        builder.append(data);
-        for(int i=2;i<spaceLeft-1;i++)
+
+
+    public StringBuilder createCellWithData(String data) {
+        StringBuilder cellData = new StringBuilder();
+        cellData.append(TableConstants.verticalSeparator + " ");
+        int spaceLeft = colWidth - data.length();
+        cellData.append(data);
+        for (int i = 2; i < spaceLeft - 1; i++)
+            cellData.append(" ");
+        if (data.length() != colWidth - 2)
+            cellData.append(" ");
+        return cellData;
+    }
+
+    public StringBuilder createCellWithoutData() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(TableConstants.verticalSeparator);
+        for (int i = 1; i <= colWidth - 1; i++)
             builder.append(" ");
-        /*for(int i=data.length();i<=cellWidth;i++)
-        {
-            builder.append(" ");
-        }*/
-        if(data.length()!=cellWidth-2)
-          builder.append(" ");
-       // builder.append(TableConstants.verticalSeparator);
         return builder;
     }
-    public StringBuilder createCellWithoutData(int cellWidth) {
-        StringBuilder builder=new StringBuilder();
-        builder.append(TableConstants.verticalSeparator);
-        for(int i=1;i<=cellWidth-1;i++)
-            builder.append(" ");
-       // builder.append(TableConstants.verticalSeparator);
-        return  builder;
-    }
 
 
-    public static void main(String[] args) {
-        VerticalLayoutManager verticalLayoutManager=new VerticalLayoutManager(3,4);
-
-        String table=verticalLayoutManager.createTable(new String[]{"one","two","three"});
-        System.out.println(table);
-    }
     private String createRowSeparator() {
         StringBuilder rowSeparator = new StringBuilder();
         rowSeparator.append("\n" + TableConstants.leftMid);
@@ -217,4 +189,4 @@ public class VerticalLayoutManager implements LayoutManager {
         return rowSeparator.toString();
     }
 
-}
+   }

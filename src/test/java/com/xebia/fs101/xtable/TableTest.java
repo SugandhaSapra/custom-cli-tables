@@ -19,7 +19,8 @@ public class TableTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_exception_when_row_count_or_col_count_is_less_than_0() {
-        Table table = new Table(-1, 1);
+        Table table =new Table.Builder().withRowCount(-1).withColCount(-1).build();
+        table.generateTable();
     }
 
     @Test
@@ -35,10 +36,10 @@ public class TableTest {
     }
 
     @Test
-    public void should_create_table_with_only_header() {
-        String[] cells={"one","two","three"};
-        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(cells).build();
-        String actualResult = table.generateTable(cells);
+    public void should_create_table_with_only_header(){
+        String[] header={"one","two","three"};
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).build();
+        String actualResult = table.generateTable();
         String expectedResult =
                         "┌──────┬──────┬──────┐\n" +
                         "│ one  │ two  │ three│\n" +
@@ -53,7 +54,7 @@ public class TableTest {
     public void should_throw_exception_if_headers_are_less_than_cols() {
         String[] cells={"one","two"};
         Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(cells).build();
-        table.generateTable(cells);
+        table.generateTable();
 
     }
 
@@ -71,7 +72,7 @@ public class TableTest {
         rowdata.add(celldata3);
         rowdata.add(celldata4);
         Table table = new Table.Builder().withRowCount(4).withColCount(3).withRows(rowdata).build();
-        String actualResult = table.generateTable(rowdata);
+        String actualResult = table.generateTable();
         String expectedResult =
                         "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
@@ -98,7 +99,7 @@ public class TableTest {
         rowdata.add(celldata3);
         rowdata.add(celldata4);
         Table table = new Table.Builder().withRowCount(4).withColCount(1).withRows(rowdata).build();
-        table.generateTable(rowdata);
+        table.generateTable();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -114,22 +115,22 @@ public class TableTest {
         rowdata.add(celldata3);
         rowdata.add(celldata4);
         Table table = new Table.Builder().withRowCount(2).withColCount(3).withRows(rowdata).build();
-        table.generateTable(rowdata);
+        table.generateTable();
     }
 
     @Test
     public void should_create_table_with_header_row_and_data_rows() {
 
-        String[] celldata1 = {"one", "two", "three"};
-        String[] celldata2 = {"test", "logic", "user"};
-        String[] celldata3 = {"assumption", "great", "reflection"};
-        String[] celldata4 = {"flexible", "pleasant", "wild"};
+        String[] header = {"one", "two", "three"};
+        String[] row1 = {"test", "logic", "user"};
+        String[] row2 = {"assumption", "great", "reflection"};
+        String[] row3 = {"flexible", "pleasant", "wild"};
         List<String[]> rowdata = new ArrayList<>();
-        rowdata.add(celldata2);
-        rowdata.add(celldata3);
-        rowdata.add(celldata4);
-        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(celldata1).withRows(rowdata).build();
-        String actualResult = table.generateTable(rowdata,celldata1);
+        rowdata.add(row1);
+        rowdata.add(row2);
+        rowdata.add(row3);
+        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(header).withRows(rowdata).build();
+        String actualResult = table.generateTable();
         String expectedResult =
                         "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +

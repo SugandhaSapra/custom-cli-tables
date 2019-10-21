@@ -12,18 +12,21 @@ public class HorizontalLayoutManager implements LayoutManager {
 
 
     HorizontalLayoutManager(int rowCount, int colCount) {
+
         this.rowCount = rowCount;
         this.colCount = colCount;
 
     }
 
-    public String createTable(List<String[]> rows) {
+    @Override
+    public String createDataTable(List<String[]> rows) {
 
         colWidth = computeWidth(rows) + 2;
         tableWidth = colWidth * colCount;
         return this.createTopLine() + this.createTabularStruct(rows) + this.createBottomLine();
     }
 
+    @Override
     public String createTable() {
 
         tableWidth = TableConstants.maxColWidth * colCount;
@@ -33,7 +36,8 @@ public class HorizontalLayoutManager implements LayoutManager {
     }
 
 
-    public String createTable(String[] headers) {
+    @Override
+    public String createTableWithOnlyHeaders(String[] headers) {
 
         colWidth = computeWidth(headers) + 2;
         tableWidth = colWidth * colCount;

@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface LayoutManager {
     String createTable();
-    String createTable(String[] headers);
-    String createTable(List<String[]> rows);
+    String createTableWithOnlyHeaders(String[] headers);
+    String createDataTable(List<String[]> rows);
 
 
 }

@@ -40,8 +40,8 @@ public class Table {
 
         if (headers != null || rows != null) {
             if (headers != null && rows != null) {
-                //rows.add(0, headers);
-                //validateRowsAndCols();
+                rows.add(0, headers);
+                validateRowsAndCols();
                 return layoutManager.createDataTable(rows);
             } else if (headers != null && rows == null) {
                 validateRowsAndCols();

@@ -2,6 +2,7 @@ package com.xebia.fs101.xtable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Table {
 
@@ -77,7 +78,10 @@ public class Table {
 
         public Builder() {
         }
-
+        /*public Builder withLayoutManager(LayoutManager val) {
+            layoutManager=val;
+            return  this;
+        }*/
         public Builder withRowCount(int val) {
             rowCount = val;
             return this;
@@ -105,6 +109,45 @@ public class Table {
 
         public Table build() {
             return new Table(this);
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Please enter the number of rows and");
+        Scanner sc=new Scanner(System.in);
+        int rows=sc.nextInt();
+        int columns=sc.nextInt();
+        System.out.println("Please press 1 for horizontal table and 2 for vertical table");
+        int choice=sc.nextInt();
+        if(choice==2)
+        {
+            VerticalLayoutManager verticalLayoutManager=new VerticalLayoutManager(rows,columns);
+            System.out.println("Do you want table with data :y/n");
+            char withData=sc.next().charAt(0);
+            if(withData=='y'|| withData=='Y')
+            {
+
+
+            }
+            else{
+                 String verticalTable=verticalLayoutManager.createTable();
+                System.out.println(verticalTable);
+            }
+
+        }
+        else {
+            HorizontalLayoutManager horizontalLayoutManager=new HorizontalLayoutManager(rows,columns);
+            System.out.println("Do you want table with data :y/n");
+            char withData=sc.next().charAt(0);
+            if(withData=='y'|| withData=='Y')
+            {
+
+
+            }
+            else{
+                String verticalTable=horizontalLayoutManager.createTable();
+                System.out.println(verticalTable);
+            }
         }
     }
 }

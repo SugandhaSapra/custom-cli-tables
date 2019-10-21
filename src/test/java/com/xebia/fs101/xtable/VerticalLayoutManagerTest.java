@@ -19,7 +19,6 @@ public class VerticalLayoutManagerTest {
         System.out.println(setBold);
         System.out.println(boldGrayLine);
         String result = verticalLayoutManager.createTableWithOnlyHeaders(cells);
-        System.out.println(result);
         assertThat(result).isEqualTo(
                 "┌──────┬──────┬──────┬──────┐\n" +
                         "│ one  │      │      │      │\n" +
@@ -44,7 +43,6 @@ public class VerticalLayoutManagerTest {
         tableData.add(row2);
         tableData.add(row3);
         String actualResult = verticalLayoutManager.createDataTable(tableData);
-        System.out.println(actualResult);
         assertThat(actualResult).isEqualTo(
                 "┌────────┬────────┬────────┬────────┐\n" +
                         "│ Name   │ Trump  │ Obama  │ John   │\n" +
@@ -54,5 +52,15 @@ public class VerticalLayoutManagerTest {
                         "│ Subject│ Math   │ Math   │ Math   │\n" +
                         "└────────┴────────┴────────┴────────┘"
         );
+    }
+    @Test
+    public void should_be_able_to_create_an_empty_structure() {
+        VerticalLayoutManager verticalLayoutManager = new VerticalLayoutManager(1,2);
+        String actualResult = verticalLayoutManager.createTable();
+        String expectedResult =
+                "┌───────────────────┬───────────────────┐\n" +
+                        "│                   │                   │\n" +
+                        "└───────────────────┴───────────────────┘";
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 }

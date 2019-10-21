@@ -11,15 +11,20 @@ public class Table {
     private LayoutManager layoutManager;
     private Renderer renderer;
     private String[] headers;
-    private List<String[]> rows = new ArrayList<>();
+    private List<String[]> rows;
+    private TableLayout tableLayout;
 
     private Table(Builder builder) {
         rowCount = builder.rowCount;
         colCount = builder.colCount;
-        layoutManager = new HorizontalLayoutManager(rowCount, colCount);
         renderer = new ConsoleBaseRenderer();
         rows = builder.rows;
         headers = builder.headers;
+        tableLayout=builder.tableLayout;
+        if(tableLayout==TableLayout.VERTICAL)
+            layoutManager = new VerticalLayoutManager(rowCount, colCount);
+        else
+            layoutManager=new HorizontalLayoutManager(rowCount,colCount);
     }
 
     public void renderTable() {
@@ -35,8 +40,8 @@ public class Table {
 
         if (headers != null || rows != null) {
             if (headers != null && rows != null) {
-                rows.add(0, headers);
-                validateRowsAndCols();
+                //rows.add(0, headers);
+                //validateRowsAndCols();
                 return layoutManager.createDataTable(rows);
             } else if (headers != null && rows == null) {
                 validateRowsAndCols();
@@ -75,6 +80,7 @@ public class Table {
         private Renderer renderer;
         private List<String[]> rows;
         private String[] headers;
+        private TableLayout tableLayout;
 
         public Builder() {
         }
@@ -106,6 +112,11 @@ public class Table {
             rows = val;
             return this;
         }
+        public Builder withTableLayout(TableLayout val) {
+            tableLayout = val;
+            return this;
+        }
+
 
         public Table build() {
             return new Table(this);

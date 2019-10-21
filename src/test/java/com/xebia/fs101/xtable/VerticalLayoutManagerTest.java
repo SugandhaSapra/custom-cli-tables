@@ -20,7 +20,7 @@ public class VerticalLayoutManagerTest {
         System.out.println(boldGrayLine);
         String result = verticalLayoutManager.createTableWithOnlyHeaders(cells);
         assertThat(result).isEqualTo(
-                "┌──────┬──────┬──────┬──────┐\n" +
+                        "┌──────┬──────┬──────┬──────┐\n" +
                         "│ one  │      │      │      │\n" +
                         "├──────┼──────┼──────┼──────┤\n" +
                         "│ two  │      │      │      │\n" +
@@ -44,7 +44,7 @@ public class VerticalLayoutManagerTest {
         tableData.add(row3);
         String actualResult = verticalLayoutManager.createDataTable(tableData);
         assertThat(actualResult).isEqualTo(
-                "┌────────┬────────┬────────┬────────┐\n" +
+                        "┌────────┬────────┬────────┬────────┐\n" +
                         "│ Name   │ Trump  │ Obama  │ John   │\n" +
                         "├────────┼────────┼────────┼────────┤\n" +
                         "│ Marks  │ 10     │ 40     │ 60     │\n" +

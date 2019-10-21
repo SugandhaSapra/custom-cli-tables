@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e45a5c65-ac86-4dc0-8a62-467609c0af5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/Table$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/Table$Builder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/Table.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/TableTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/TableTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/VerticalLayoutManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/VerticalLayoutManagerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="e45a5c65-ac86-4dc0-8a62-467609c0af5b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

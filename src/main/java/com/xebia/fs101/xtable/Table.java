@@ -64,7 +64,8 @@ public class Table {
                 throw new IllegalArgumentException("Row and col should be greater than 0");
             if(headers!=null && headers.length!=rowCount)
                 throw new IllegalArgumentException("Please pass according to number of rows");
-
+            if (rows != null && rows.size() != colCount)
+                throw new IllegalArgumentException("Please pass according to the number of cols");
             if (rows != null) {
                 for (String cells[] : rows) {
                     if (cells.length != rowCount)

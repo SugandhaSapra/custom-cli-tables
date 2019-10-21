@@ -12,7 +12,6 @@ public class HorizontalLayoutManager implements LayoutManager {
 
 
     HorizontalLayoutManager(int rowCount, int colCount) {
-
         this.rowCount = rowCount;
         this.colCount = colCount;
 

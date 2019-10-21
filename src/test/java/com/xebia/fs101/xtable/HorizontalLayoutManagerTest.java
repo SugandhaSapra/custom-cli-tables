@@ -24,7 +24,7 @@ public class HorizontalLayoutManagerTest {
     public void should_create_table_with_header() {
         HorizontalLayoutManager horizontalLayoutManager = new HorizontalLayoutManager(2, 3);
         String[] cells={"one","two","three"};
-        String actualResult = horizontalLayoutManager.createTable(cells);
+        String actualResult = horizontalLayoutManager.createTableWithOnlyHeaders(cells);
         String expectedResult =
                              "┌──────┬──────┬──────┐\n" +
                              "│ one  │ two  │ three│\n" +
@@ -47,7 +47,7 @@ public class HorizontalLayoutManagerTest {
         rowdata.add(celldata2);
         rowdata.add(celldata3);
         rowdata.add(celldata4);
-        String actualResult = horizontalLayoutManager.createTable(rowdata);
+        String actualResult = horizontalLayoutManager.createDataTable(rowdata);
         String expectedResult =
                         "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +

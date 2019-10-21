@@ -37,16 +37,15 @@ public class HorizontalLayoutManagerTest {
     @Test
     public void should_create_table_with_data_rows() {
         HorizontalLayoutManager horizontalLayoutManager = new HorizontalLayoutManager(4, 3);
-        String[] cells={"one","two","three"};
-        String[] celldata1 = {"one", "two", "three"};
-        String[] celldata2 = {"test", "logic", "user"};
-        String[] celldata3 = {"assumption", "great", "reflection"};
-        String[] celldata4 = {"flexible", "pleasant", "wild"};
+        String[] row1 = {"one", "two", "three"};
+        String[] row2 = {"test", "logic", "user"};
+        String[] row3 = {"assumption", "great", "reflection"};
+        String[] row4 = {"flexible", "pleasant", "wild"};
         List<String[]> rowdata = new ArrayList<>();
-        rowdata.add(celldata1);
-        rowdata.add(celldata2);
-        rowdata.add(celldata3);
-        rowdata.add(celldata4);
+        rowdata.add(row1);
+        rowdata.add(row2);
+        rowdata.add(row3);
+        rowdata.add(row4);
         String actualResult = horizontalLayoutManager.createDataTable(rowdata);
         String expectedResult =
                         "┌───────────┬───────────┬───────────┐\n" +

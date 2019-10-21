@@ -152,14 +152,15 @@ public class TableTest {
         String[] row2 = {"10", "40", "60"};
         String[] row3 = {"Math", "Math", "Math"};
         List<String[]> tableData = new ArrayList<>();
-        tableData.add(header);
+       // tableData.add(header);
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(header).withRows(tableData).withTableLayout(TableLayout.VERTICAL).build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(header).withRows(tableData).withTableLayout(TableLayout.VERTICAL).build();
         String actualResult = table.generateTable();
+        System.out.println(actualResult);
         String expectedResult =
-                "┌────────┬────────┬────────┬────────┐\n" +
+                        "┌────────┬────────┬────────┬────────┐\n" +
                         "│ Name   │ Trump  │ Obama  │ John   │\n" +
                         "├────────┼────────┼────────┼────────┤\n" +
                         "│ Marks  │ 10     │ 40     │ 60     │\n" +

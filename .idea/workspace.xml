@@ -3,16 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="e45a5c65-ac86-4dc0-8a62-467609c0af5b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/HorizontalLayoutManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/HorizontalLayoutManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/LayoutManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/LayoutManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/Table$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/Table$Builder.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/Table.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/Table.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/VerticalLayoutManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/xtable/com/xebia/fs101/xtable/VerticalLayoutManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/HorizontalLayoutManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/HorizontalLayoutManagerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/TableTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/TableTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/VerticalLayoutManagerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/xtable/com/xebia/fs101/xtable/VerticalLayoutManagerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/VerticalLayoutManagerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/VerticalLayoutManagerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -76,9 +72,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.VerticalLayoutManagerTest">
-    <configuration name="VerticalLayoutManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.VerticalLayoutManager" />
+  <component name="RunManager" selected="JUnit.TableTest">
+    <configuration name="TableTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="xtable" />
       <extension name="coverage">
         <pattern>
@@ -86,6 +81,25 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
+      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TableTest.should_create_vertical_table_with_header_row_and_data_rows" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="xtable" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.xebia.fs101.xtable.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
+      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.TableTest" />
+      <option name="METHOD_NAME" value="should_create_vertical_table_with_header_row_and_data_rows" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,22 +115,6 @@
       <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
       <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.VerticalLayoutManagerTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="VerticalLayoutManagerTest.should_be_able_to_create_a_table_strcuture_with_data_entered_vertically" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="xtable" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.xebia.fs101.xtable.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.xebia.fs101.xtable" />
-      <option name="MAIN_CLASS_NAME" value="com.xebia.fs101.xtable.VerticalLayoutManagerTest" />
-      <option name="METHOD_NAME" value="should_be_able_to_create_a_table_strcuture_with_data_entered_vertically" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -202,11 +200,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TableTest" />
+        <item itemvalue="JUnit.TableTest.should_create_vertical_table_with_header_row_and_data_rows" />
         <item itemvalue="JUnit.VerticalLayoutManagerTest" />
         <item itemvalue="JUnit.VerticalLayoutManagerTest.should_be_able_to_create_a_table_strcuture_with_headers" />
         <item itemvalue="JUnit.VerticalLayoutManagerTest.should_be_able_to_create_a_table_with_headers_and_rows" />
-        <item itemvalue="Application.VerticalLayoutManager" />
-        <item itemvalue="JUnit.VerticalLayoutManagerTest.should_be_able_to_create_a_table_strcuture_with_data_entered_vertically" />
       </list>
     </recent_temporary>
   </component>
@@ -256,6 +254,107 @@
     <MESSAGE value="added logic for printing data in table issue #7" />
     <MESSAGE value="Merge branch 'issue-7' of github.com:SugandhaSapra/xtable into issue-6&#10;&#10; Conflicts:&#10;&#9;src/main/java/com/xebia/fs101/xtable/TableLayoutManager.java" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'issue-7' of github.com:SugandhaSapra/xtable into issue-6&#10;&#10; Conflicts:&#10;&#9;src/main/java/com/xebia/fs101/xtable/TableLayoutManager.java" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java</url>
+          <line>149</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/com/xebia/fs101/xtable/TableTest.java</url>
+          <line>159</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/Table.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/VerticalLayoutManager.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/HorizontalLayoutManager.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/VerticalLayoutManager.java</url>
+          <line>135</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/VerticalLayoutManager.java</url>
+          <line>170</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/VerticalLayoutManager.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/VerticalLayoutManager.java</url>
+          <line>142</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/VerticalLayoutManager.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/VerticalLayoutManager.java</url>
+          <line>140</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/xebia/fs101/xtable/VerticalLayoutManager.java</url>
+          <line>166</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/xtable$VerticalLayoutManager.ic" NAME="VerticalLayoutManager Coverage Results" MODIFIED="1571640584851" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

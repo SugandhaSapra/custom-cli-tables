@@ -41,34 +41,52 @@ public class Table {
         if (headers != null || rows != null) {
             if (headers != null && rows != null) {
                 rows.add(0, headers);
-                validateRowsAndCols();
+                validateRowsAndCols(layoutManager);
                 return layoutManager.createDataTable(rows);
             } else if (headers != null && rows == null) {
-                validateRowsAndCols();
+                validateRowsAndCols(layoutManager);
                 return layoutManager.createTableWithOnlyHeaders(headers);
             } else {
-                validateRowsAndCols();
+                validateRowsAndCols(layoutManager);
                 return layoutManager.createDataTable(rows);
             }
 
         } else
-            validateRowsAndCols();
+            validateRowsAndCols(layoutManager);
         return layoutManager.createTable();
 
     }
 
-    private void validateRowsAndCols() {
-        if (rowCount < 0 || colCount < 0)
-            throw new IllegalArgumentException("Row and Col should be greater than 0");
-        if (headers != null && headers.length != colCount)
-            throw new IllegalArgumentException("Please pass according to the number of cols");
-        if (rows != null && rows.size() != rowCount)
-            throw new IllegalArgumentException("Please pass according to the number of rows");
-        if (rows != null) {
-            for (String cells[] : rows) {
-                if (cells.length != colCount)
-                    throw new IllegalArgumentException("Please pass according to the number of rows");
+    private void validateRowsAndCols(LayoutManager layoutManager) {
+        if(layoutManager instanceof  VerticalLayoutManager) {
+            System.out.println("This testing  is for vertical table");
+            if(rowCount<0 ||colCount<0)
+                throw new IllegalArgumentException("Row and col should be greater than 0");
+            if(headers!=null && headers.length!=rowCount)
+                throw new IllegalArgumentException("Please pass according to number of rows");
+
+            if (rows != null) {
+                for (String cells[] : rows) {
+                    if (cells.length != rowCount)
+                        throw new IllegalArgumentException("Please pass according to the number of rows");
+                }
             }
+
+        }
+        else
+        {
+                if (rowCount < 0 || colCount < 0)
+                    throw new IllegalArgumentException("Row and Col should be greater than 0");
+                if (headers != null && headers.length != colCount)
+                    throw new IllegalArgumentException("Please pass according to the number of cols");
+                if (rows != null && rows.size() != rowCount)
+                    throw new IllegalArgumentException("Please pass according to the number of rows");
+                if (rows != null) {
+                    for (String cells[] : rows) {
+                        if (cells.length != colCount)
+                            throw new IllegalArgumentException("Please pass according to the number of rows");
+                    }
+                }
         }
     }
 
@@ -84,10 +102,7 @@ public class Table {
 
         public Builder() {
         }
-        /*public Builder withLayoutManager(LayoutManager val) {
-            layoutManager=val;
-            return  this;
-        }*/
+
         public Builder withRowCount(int val) {
             rowCount = val;
             return this;

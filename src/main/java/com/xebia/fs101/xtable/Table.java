@@ -21,8 +21,8 @@ public class Table {
         headers = builder.headers;
     }
 
-    public void renderTable() {
-        renderer.printTable(generateTable());
+    public void render() {
+        renderer.printTable(generate());
     }
 
     public String getShape() {
@@ -30,7 +30,7 @@ public class Table {
     }
 
 
-    public String generateTable() {
+    public String generate() {
 
         if (headers != null || rows != null) {
             if (headers != null && rows != null) {

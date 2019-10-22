@@ -29,8 +29,8 @@ public class HorizontalLayoutManager implements LayoutManager {
     @Override
     public String createTable() {
 
-        tableWidth = TableConstants.maxColWidth * colCount;
-        colWidth = TableConstants.maxColWidth;
+        tableWidth = TableConstants.MAX_COL_WIDTH * colCount;
+        colWidth = TableConstants.MAX_COL_WIDTH;
         return this.createTopLine() + this.createTabularStruct() + this.createBottomLine();
 
     }
@@ -49,13 +49,13 @@ public class HorizontalLayoutManager implements LayoutManager {
         StringBuilder top = new StringBuilder();
         for (int i = 1; i <= tableWidth; i++) {
             if (i == 1)
-                top.append(TableConstants.topLeft);
+                top.append(TableConstants.TOP_LEFT);
             if (i == tableWidth)
-                top.append(TableConstants.topRight);
+                top.append(TableConstants.TOP_RIGHT);
             else if (i % colWidth == 0)
-                top.append(TableConstants.topMiddle);
+                top.append(TableConstants.TOP_MIDDLE);
             else
-                top.append(TableConstants.mid);
+                top.append(TableConstants.MID);
         }
         return top.toString();
 
@@ -66,27 +66,27 @@ public class HorizontalLayoutManager implements LayoutManager {
         bottom.append("\n");
         for (int i = 1; i <= tableWidth; i++) {
             if (i == 1)
-                bottom.append(TableConstants.bottomLeft);
+                bottom.append(TableConstants.BOTTOM_LEFT);
             if (i == tableWidth)
-                bottom.append(TableConstants.bottomRight);
+                bottom.append(TableConstants.BOTTOM_RIGHT);
             else if (i % colWidth == 0)
-                bottom.append(TableConstants.bottomMiddle);
+                bottom.append(TableConstants.BOTTOM_MIDDLE);
             else
-                bottom.append(TableConstants.mid);
+                bottom.append(TableConstants.MID);
         }
         return bottom.toString();
     }
 
     private String createRowSeparator() {
         StringBuilder rowSeparator = new StringBuilder();
-        rowSeparator.append("\n" + TableConstants.leftMid);
+        rowSeparator.append("\n" + TableConstants.LEFT_MID);
         for (int i = 1; i < tableWidth; i++) {
             if (i % colWidth == 0)
-                rowSeparator.append(TableConstants.midMid);
+                rowSeparator.append(TableConstants.MID_MID);
             else
-                rowSeparator.append(TableConstants.mid);
+                rowSeparator.append(TableConstants.MID);
         }
-        rowSeparator.append(TableConstants.rightMid);
+        rowSeparator.append(TableConstants.RIGHT_MID);
         return rowSeparator.toString();
     }
 
@@ -94,14 +94,14 @@ public class HorizontalLayoutManager implements LayoutManager {
         StringBuilder tableData = new StringBuilder();
 
         for (int j = 1; j <= rowCount; j++) {
-            tableData.append("\n" + TableConstants.verticalSeparator);
+            tableData.append("\n" + TableConstants.VERTICAL_SEPARATOR);
             for (int i = 1; i < tableWidth; i++) {
                 if (i % colWidth == 0)
-                    tableData.append(TableConstants.verticalSeparator);
+                    tableData.append(TableConstants.VERTICAL_SEPARATOR);
                 else
                     tableData.append(" ");
             }
-            tableData.append(TableConstants.verticalSeparator);
+            tableData.append(TableConstants.VERTICAL_SEPARATOR);
             if (j == rowCount)
                 break;
             tableData.append(createRowSeparator());
@@ -113,7 +113,7 @@ public class HorizontalLayoutManager implements LayoutManager {
 
     private String createTabularStruct(String[] headers) {
         StringBuilder tableHeader = new StringBuilder();
-        tableHeader.append("\n" + TableConstants.verticalSeparator);
+        tableHeader.append("\n" + TableConstants.VERTICAL_SEPARATOR);
         for (int j = 0; j < headers.length; j++) {
             for (int k = 0; k < colWidth; ) {
                 tableHeader.append(" ").append(headers[j]);
@@ -122,19 +122,19 @@ public class HorizontalLayoutManager implements LayoutManager {
                     tableHeader.append(" ");
                     k++;
                 }
-                tableHeader.append(TableConstants.verticalSeparator);
+                tableHeader.append(TableConstants.VERTICAL_SEPARATOR);
             }
         }
         tableHeader.append(createRowSeparator());
         for (int j = 1; j <= rowCount; j++) {
-            tableHeader.append("\n" + TableConstants.verticalSeparator);
+            tableHeader.append("\n" + TableConstants.VERTICAL_SEPARATOR);
             for (int i = 1; i < tableWidth; i++) {
                 if (i % colWidth == 0)
-                    tableHeader.append(TableConstants.verticalSeparator);
+                    tableHeader.append(TableConstants.VERTICAL_SEPARATOR);
                 else
                     tableHeader.append(" ");
             }
-            tableHeader.append(TableConstants.verticalSeparator);
+            tableHeader.append(TableConstants.VERTICAL_SEPARATOR);
             if (j == rowCount - 1)
                 break;
             tableHeader.append(createRowSeparator());
@@ -150,7 +150,7 @@ public class HorizontalLayoutManager implements LayoutManager {
     private String createTabularStruct(List<String[]> rows) {
         StringBuilder tableData = new StringBuilder();
         for (int i = 0; i < rowCount; i++) {
-            tableData.append("\n" + TableConstants.verticalSeparator);
+            tableData.append("\n" + TableConstants.VERTICAL_SEPARATOR);
             String[] cells = rows.get(i);
             for (int j = 0; j < cells.length; j++) {
                 for (int k = 0; k < colWidth; ) {
@@ -162,7 +162,7 @@ public class HorizontalLayoutManager implements LayoutManager {
                     }
 
                 }
-                tableData.append(TableConstants.verticalSeparator);
+                tableData.append(TableConstants.VERTICAL_SEPARATOR);
             }
             if (i == rowCount - 1)
                 break;

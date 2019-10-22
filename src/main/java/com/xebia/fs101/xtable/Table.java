@@ -2,6 +2,7 @@ package com.xebia.fs101.xtable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Table {
 
@@ -11,14 +12,16 @@ public class Table {
     private Renderer renderer;
     private String[] headers;
     private List<String[]> rows = new ArrayList<>();
+    private Map<Integer,Integer> columnWidth;
 
     private Table(Builder builder) {
         rowCount = builder.rowCount;
         colCount = builder.colCount;
-        layoutManager = new HorizontalLayoutManager(rowCount, colCount);
-        renderer = new ConsoleBaseRenderer();
-        rows = builder.rows;
+        layoutManager = builder.layoutManager;
+        renderer = builder.renderer;
         headers = builder.headers;
+        rows = builder.rows;
+        columnWidth = builder.columnWidth;
     }
 
     public void render() {
@@ -73,7 +76,9 @@ public class Table {
         private LayoutManager layoutManager;
         private Renderer renderer;
         private List<String[]> rows;
+        private Map<Integer, Integer> columnWidth;
         private String[] headers;
+
 
         public Builder() {
         }
@@ -88,6 +93,11 @@ public class Table {
             return this;
         }
 
+        public Builder withLayoutManager(LayoutManager val) {
+            layoutManager = val;
+            return this;
+        }
+
         public Builder withHeader(String[] val) {
             headers = val;
             return this;
@@ -98,8 +108,18 @@ public class Table {
             return this;
         }
 
+        public Builder withHeaders(String[] val) {
+            headers = val;
+            return this;
+        }
+
         public Builder withRows(List<String[]> val) {
             rows = val;
+            return this;
+        }
+
+        public Builder withColumnWidth(Map<Integer, Integer> val) {
+            columnWidth = val;
             return this;
         }
 

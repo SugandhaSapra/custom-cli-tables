@@ -1,6 +1,7 @@
 package com.xebia.fs101.xtable;
 
 import java.util.List;
+import java.util.Map;
 
 import static com.xebia.fs101.xtable.TableConstants.*;
 
@@ -26,15 +27,13 @@ public class HorizontalLayoutManager implements LayoutManager {
         return this.createTopLine() + this.createTableStructure(rows) + this.createBottomLine();
     }
 
+
     @Override
     public String createTable() {
-
         tableWidth = MAX_COL_WIDTH * colCount;
         colWidth = MAX_COL_WIDTH;
         return this.createTopLine() + this.createTableStructure() + this.createBottomLine();
-
     }
-
 
     @Override
     public String createTableWithHeadersOnly(String[] headers) {
@@ -140,11 +139,8 @@ public class HorizontalLayoutManager implements LayoutManager {
             tableHeader.append(createRowSeparator());
 
             return tableHeader.toString();
-
         }
-
         return tableHeader.toString();
-
     }
 
     private String createTableStructure(List<String[]> rows) {

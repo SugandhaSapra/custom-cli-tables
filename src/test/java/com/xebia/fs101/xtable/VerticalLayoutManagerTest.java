@@ -14,10 +14,6 @@ public class VerticalLayoutManagerTest {
     public void should_be_able_to_create_a_table_strcuture_with_headers() {
         VerticalLayoutManager verticalLayoutManager = new VerticalLayoutManager(3, 4);
         String[] cells = {"one", "two", "three"};
-        String setBold = "\033[1mThis keeps it bold.";
-        String boldGrayLine = "\033[1mThis is a BOLD line\033[0m";
-        System.out.println(setBold);
-        System.out.println(boldGrayLine);
         String result = verticalLayoutManager.createTableWithOnlyHeaders(cells);
         assertThat(result).isEqualTo(
                         "┌──────┬──────┬──────┬──────┐\n" +

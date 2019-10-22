@@ -152,7 +152,6 @@ public class TableTest {
         String[] row2 = {"10", "40", "60"};
         String[] row3 = {"Math", "Math", "Math"};
         List<String[]> tableData = new ArrayList<>();
-       // tableData.add(header);
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);

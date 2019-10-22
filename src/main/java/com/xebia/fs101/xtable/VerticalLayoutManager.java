@@ -134,16 +134,11 @@ public class VerticalLayoutManager implements LayoutManager {
 
     private String createTabularStruct(List<String[]> data) {
         StringBuilder tableData = new StringBuilder();
-        String[] headers = data.get(0);
-        int count = 0;
         for (int i = 0; i < rowCount; i++) {
-            int k = 0;
-            String[] row = data.get(i + 1);
-            for (int j = 0; j < colCount; j++) {
-                if (j == 0) {
-                    tableData.append("\n" + createCellWithData(headers[count++]));
-                } else
-                    tableData.append(createCellWithData(row[k++]));
+            int count=0;
+            tableData.append("\n");
+            for (int j = 0; j <colCount; j++) {
+                tableData.append(createCellWithData(data.get(count++)[i]));
 
             }
             tableData.append(TableConstants.verticalSeparator);

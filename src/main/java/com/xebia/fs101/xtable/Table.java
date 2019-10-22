@@ -1,8 +1,6 @@
 package com.xebia.fs101.xtable;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Table {
 
@@ -27,8 +25,8 @@ public class Table {
             layoutManager=new HorizontalLayoutManager(rowCount,colCount);
     }
 
-    public void renderTable() {
-        renderer.printTable(generateTable());
+    public void render() {
+        renderer.printTable(generate());
     }
 
     public String getShape() {
@@ -36,7 +34,7 @@ public class Table {
     }
 
 
-    public String generateTable() {
+    public String generate() {
 
         if (headers != null || rows != null) {
             if (headers != null && rows != null) {
@@ -139,5 +137,5 @@ public class Table {
         }
     }
 
-    
+
 }

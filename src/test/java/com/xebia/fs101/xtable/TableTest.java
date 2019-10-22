@@ -29,7 +29,7 @@ public class TableTest {
         String actualResult = table.generate();
         System.out.println(actualResult);
         String expectedResult =
-                "┌───────────────────┐\n" +
+                        "┌───────────────────┐\n" +
                         "│                   │\n" +
                         "└───────────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
@@ -74,7 +74,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(4).withColCount(3).withRows(tableData).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌───────────┬───────────┬───────────┐\n" +
+                        "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
                         "├───────────┼───────────┼───────────┤\n" +
                         "│ test      │ logic     │ user      │\n" +
@@ -132,7 +132,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(headers).withRows(tableData).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌───────────┬───────────┬───────────┐\n" +
+                        "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
                         "├───────────┼───────────┼───────────┤\n" +
                         "│ test      │ logic     │ user      │\n" +
@@ -143,4 +143,5 @@ public class TableTest {
                         "└───────────┴───────────┴───────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
 }

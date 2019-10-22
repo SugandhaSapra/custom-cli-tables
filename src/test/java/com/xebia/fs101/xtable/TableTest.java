@@ -29,7 +29,7 @@ public class TableTest {
         String actualResult = table.generate();
         System.out.println(actualResult);
         String expectedResult =
-                "┌───────────────────┐\n" +
+                        "┌───────────────────┐\n" +
                         "│                   │\n" +
                         "└───────────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
@@ -41,7 +41,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌──────┬──────┬──────┐\n" +
+                        "┌──────┬──────┬──────┐\n" +
                         "│ one  │ two  │ three│\n" +
                         "├──────┼──────┼──────┤\n" +
                         "│      │      │      │\n" +
@@ -62,19 +62,19 @@ public class TableTest {
     @Test
     public void should_create_table_with_data_rows() {
 
-        String[] celldata1 = {"one", "two", "three"};
-        String[] celldata2 = {"test", "logic", "user"};
-        String[] celldata3 = {"assumption", "great", "reflection"};
-        String[] celldata4 = {"flexible", "pleasant", "wild"};
-        List<String[]> rowdata = new ArrayList<>();
-        rowdata.add(celldata1);
-        rowdata.add(celldata2);
-        rowdata.add(celldata3);
-        rowdata.add(celldata4);
-        Table table = new Table.Builder().withRowCount(4).withColCount(3).withRows(rowdata).build();
+        String[] row1 = {"one", "two", "three"};
+        String[] row2 = {"test", "logic", "user"};
+        String[] row3 = {"assumption", "great", "reflection"};
+        String[] row4 = {"flexible", "pleasant", "wild"};
+        List<String[]> tableData = new ArrayList<>();
+        tableData.add(row1);
+        tableData.add(row2);
+        tableData.add(row3);
+        tableData.add(row4);
+        Table table = new Table.Builder().withRowCount(4).withColCount(3).withRows(tableData).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌───────────┬───────────┬───────────┐\n" +
+                        "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
                         "├───────────┼───────────┼───────────┤\n" +
                         "│ test      │ logic     │ user      │\n" +
@@ -89,32 +89,32 @@ public class TableTest {
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_exception_if_colData_is_less_than_colCount() {
 
-        String[] celldata1 = {"one", "two", "three"};
-        String[] celldata2 = {"test", "logic", "user"};
-        String[] celldata3 = {"assumption", "great", "reflection"};
-        String[] celldata4 = {"flexible", "pleasant", "wild"};
-        List<String[]> rowdata = new ArrayList<>();
-        rowdata.add(celldata1);
-        rowdata.add(celldata2);
-        rowdata.add(celldata3);
-        rowdata.add(celldata4);
-        Table table = new Table.Builder().withRowCount(4).withColCount(1).withRows(rowdata).build();
+        String[] row1 = {"one", "two", "three"};
+        String[] row2 = {"test", "logic", "user"};
+        String[] row3 = {"assumption", "great", "reflection"};
+        String[] row4 = {"flexible", "pleasant", "wild"};
+        List<String[]> tableData = new ArrayList<>();
+        tableData.add(row1);
+        tableData.add(row2);
+        tableData.add(row3);
+        tableData.add(row4);
+        Table table = new Table.Builder().withRowCount(4).withColCount(1).withRows(tableData).build();
         table.generate();
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_exception_if_rowData_is_less_than_rowCount() {
 
-        String[] celldata1 = {"one", "two", "three"};
-        String[] celldata2 = {"test", "logic", "user"};
-        String[] celldata3 = {"assumption", "great", "reflection"};
-        String[] celldata4 = {"flexible", "pleasant", "wild"};
-        List<String[]> rowdata = new ArrayList<>();
-        rowdata.add(celldata1);
-        rowdata.add(celldata2);
-        rowdata.add(celldata3);
-        rowdata.add(celldata4);
-        Table table = new Table.Builder().withRowCount(2).withColCount(3).withRows(rowdata).build();
+        String[] row1 = {"one", "two", "three"};
+        String[] row2 = {"test", "logic", "user"};
+        String[] row3 = {"assumption", "great", "reflection"};
+        String[] row4 = {"flexible", "pleasant", "wild"};
+        List<String[]> tableData = new ArrayList<>();
+        tableData.add(row1);
+        tableData.add(row2);
+        tableData.add(row3);
+        tableData.add(row4);
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withRows(tableData).build();
         table.generate();
     }
 
@@ -125,14 +125,14 @@ public class TableTest {
         String[] row1 = {"test", "logic", "user"};
         String[] row2 = {"assumption", "great", "reflection"};
         String[] row3 = {"flexible", "pleasant", "wild"};
-        List<String[]> rowdata = new ArrayList<>();
-        rowdata.add(row1);
-        rowdata.add(row2);
-        rowdata.add(row3);
-        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(header).withRows(rowdata).build();
+        List<String[]> tableData = new ArrayList<>();
+        tableData.add(row1);
+        tableData.add(row2);
+        tableData.add(row3);
+        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(header).withRows(tableData).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌───────────┬───────────┬───────────┐\n" +
+                        "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
                         "├───────────┼───────────┼───────────┤\n" +
                         "│ test      │ logic     │ user      │\n" +
@@ -141,31 +141,6 @@ public class TableTest {
                         "├───────────┼───────────┼───────────┤\n" +
                         "│ flexible  │ pleasant  │ wild      │\n" +
                         "└───────────┴───────────┴───────────┘";
-        assertThat(actualResult).isEqualTo(expectedResult);
-    }
-
-    @Test
-    public void should_create_vertical_table_with_header_row_and_data_rows() {
-
-        String[] header = {"Name", "Marks", "Subject"};
-        String[] row1 = {"Trump", "10", "Math"};
-        String[] row2 = {"Obama", "40", "Math"};
-        String[] row3 = {"John", "60", "Math"};
-        List<String[]> tableData = new ArrayList<>();
-        tableData.add(row1);
-        tableData.add(row2);
-        tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(header).withRows(tableData).withTableLayout(TableLayout.VERTICAL).build();
-        String actualResult = table.generate();
-        System.out.println(actualResult);
-        String expectedResult =
-                        "┌────────┬────────┬────────┬────────┐\n" +
-                        "│ Name   │ Trump  │ Obama  │ John   │\n" +
-                        "├────────┼────────┼────────┼────────┤\n" +
-                        "│ Marks  │ 10     │ 40     │ 60     │\n" +
-                        "├────────┼────────┼────────┼────────┤\n" +
-                        "│ Subject│ Math   │ Math   │ Math   │\n" +
-                        "└────────┴────────┴────────┴────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 

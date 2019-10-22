@@ -1,8 +1,6 @@
 package com.xebia.fs101.xtable;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Table {
 
@@ -27,8 +25,8 @@ public class Table {
             layoutManager=new HorizontalLayoutManager(rowCount,colCount);
     }
 
-    public void renderTable() {
-        renderer.printTable(generateTable());
+    public void render() {
+        renderer.printTable(generate());
     }
 
     public String getShape() {
@@ -36,31 +34,30 @@ public class Table {
     }
 
 
-    public String generateTable() {
+    public String generate() {
 
         if (headers != null || rows != null) {
             if (headers != null && rows != null) {
                 rows.add(0, headers);
-                validateRowsAndCols(layoutManager);
+                validate(layoutManager);
                 return layoutManager.createDataTable(rows);
             } else if (headers != null && rows == null) {
-                validateRowsAndCols(layoutManager);
-                return layoutManager.createTableWithOnlyHeaders(headers);
+                validate(layoutManager);
+                return layoutManager.createTableWithHeadersOnly(headers);
             } else {
-                validateRowsAndCols(layoutManager);
+                validate(layoutManager);
                 return layoutManager.createDataTable(rows);
             }
 
         } else
-            validateRowsAndCols(layoutManager);
+            validate(layoutManager);
         return layoutManager.createTable();
 
     }
 
-    private void validateRowsAndCols(LayoutManager layoutManager) {
+    private void validate(LayoutManager layoutManager) {
         if(layoutManager instanceof  VerticalLayoutManager) {
-            System.out.println("This testing  is for vertical table");
-            if(rowCount<0 ||colCount<0)
+           if(rowCount<0 ||colCount<0)
                 throw new IllegalArgumentException("Row and col should be greater than 0");
             if(headers!=null && headers.length!=rowCount)
                 throw new IllegalArgumentException("Please pass according to number of rows");
@@ -76,18 +73,18 @@ public class Table {
         }
         else
         {
-                if (rowCount < 0 || colCount < 0)
-                    throw new IllegalArgumentException("Row and Col should be greater than 0");
-                if (headers != null && headers.length != colCount)
-                    throw new IllegalArgumentException("Please pass according to the number of cols");
-                if (rows != null && rows.size() != rowCount)
-                    throw new IllegalArgumentException("Please pass according to the number of rows");
-                if (rows != null) {
-                    for (String cells[] : rows) {
-                        if (cells.length != colCount)
-                            throw new IllegalArgumentException("Please pass according to the number of rows");
-                    }
+            if (rowCount < 0 || colCount < 0)
+                throw new IllegalArgumentException("Row and Col should be greater than 0");
+            if (headers != null && headers.length != colCount)
+                throw new IllegalArgumentException("Please pass according to the number of cols");
+            if (rows != null && rows.size() != rowCount)
+                throw new IllegalArgumentException("Please pass according to the number of rows");
+            if (rows != null) {
+                for (String cells[] : rows) {
+                    if (cells.length != colCount)
+                        throw new IllegalArgumentException("Please pass according to the number of rows");
                 }
+            }
         }
     }
 
@@ -139,5 +136,5 @@ public class Table {
         }
     }
 
-   
+
 }

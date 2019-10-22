@@ -19,14 +19,14 @@ public class TableTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_exception_when_row_count_or_col_count_is_less_than_0() {
-        Table table = new Table.Builder().withRowCount(-1).withColCount(-1).build();
-        table.generate();
+        Table table =new Table.Builder().withRowCount(-1).withColCount(-1).build();
+        table.generateTable();
     }
 
     @Test
     public void should_create_table_with_no_data_with_for_1_row_and_col() {
         Table table = new Table.Builder().withRowCount(1).withColCount(1).build();
-        String actualResult = table.generate();
+        String actualResult = table.generateTable();
         System.out.println(actualResult);
         String expectedResult =
                         "┌───────────────────┐\n" +
@@ -36,10 +36,10 @@ public class TableTest {
     }
 
     @Test
-    public void should_create_table_with_only_headers() {
-        String[] headers = {"one", "two", "three"};
-        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(headers).build();
-        String actualResult = table.generate();
+    public void should_create_table_with_only_header(){
+        String[] header={"one","two","three"};
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).build();
+        String actualResult = table.generateTable();
         String expectedResult =
                         "┌──────┬──────┬──────┐\n" +
                         "│ one  │ two  │ three│\n" +
@@ -52,9 +52,9 @@ public class TableTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_exception_if_headers_are_less_than_cols() {
-        String[] cells = {"one", "two"};
+        String[] cells={"one","two"};
         Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(cells).build();
-        table.generate();
+        table.generateTable();
 
     }
 
@@ -72,7 +72,7 @@ public class TableTest {
         tableData.add(row3);
         tableData.add(row4);
         Table table = new Table.Builder().withRowCount(4).withColCount(3).withRows(tableData).build();
-        String actualResult = table.generate();
+        String actualResult = table.generateTable();
         String expectedResult =
                         "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
@@ -99,7 +99,7 @@ public class TableTest {
         tableData.add(row3);
         tableData.add(row4);
         Table table = new Table.Builder().withRowCount(4).withColCount(1).withRows(tableData).build();
-        table.generate();
+        table.generateTable();
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -115,13 +115,13 @@ public class TableTest {
         tableData.add(row3);
         tableData.add(row4);
         Table table = new Table.Builder().withRowCount(2).withColCount(3).withRows(tableData).build();
-        table.generate();
+        table.generateTable();
     }
 
     @Test
     public void should_create_table_with_header_row_and_data_rows() {
 
-        String[] headers = {"one", "two", "three"};
+        String[] header = {"one", "two", "three"};
         String[] row1 = {"test", "logic", "user"};
         String[] row2 = {"assumption", "great", "reflection"};
         String[] row3 = {"flexible", "pleasant", "wild"};
@@ -129,8 +129,8 @@ public class TableTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(headers).withRows(tableData).build();
-        String actualResult = table.generate();
+        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(header).withRows(tableData).build();
+        String actualResult = table.generateTable();
         String expectedResult =
                         "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +

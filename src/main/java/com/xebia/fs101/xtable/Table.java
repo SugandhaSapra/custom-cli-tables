@@ -27,8 +27,8 @@ public class Table {
             layoutManager=new HorizontalLayoutManager(rowCount,colCount);
     }
 
-    public void renderTable() {
-        renderer.printTable(generateTable());
+    public void render() {
+        renderer.printTable(generate());
     }
 
     public String getShape() {
@@ -36,7 +36,7 @@ public class Table {
     }
 
 
-    public String generateTable() {
+    public String generate() {
 
         if (headers != null || rows != null) {
             if (headers != null && rows != null) {
@@ -44,8 +44,9 @@ public class Table {
                 validateRowsAndCols(layoutManager);
                 return layoutManager.createDataTable(rows);
             } else if (headers != null && rows == null) {
+
                 validateRowsAndCols(layoutManager);
-                return layoutManager.createTableWithOnlyHeaders(headers);
+                return layoutManager.createTableWithHeadersOnly(headers);
             } else {
                 validateRowsAndCols(layoutManager);
                 return layoutManager.createDataTable(rows);

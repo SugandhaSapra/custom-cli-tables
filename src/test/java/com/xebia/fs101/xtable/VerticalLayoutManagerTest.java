@@ -43,7 +43,6 @@ public class VerticalLayoutManagerTest {
         tableData.add(row2);
         tableData.add(row3);
         String actualResult = verticalLayoutManager.createDataTable(tableData);
-        System.out.println(actualResult);
         assertThat(actualResult).isEqualTo(
                         "┌────────┬────────┬────────┬────────┐\n" +
                         "│ Name   │ Trump  │ Obama  │ Jamie  │\n" +

@@ -16,8 +16,8 @@ public class VerticalLayoutManager implements LayoutManager {
 
     @Override
     public String createTable() {
-        tableWidth = TableConstants.maxColWidth * colCount;
-        colWidth = TableConstants.maxColWidth;
+        tableWidth = TableConstants.MAX_COL_WIDTH * colCount;
+        colWidth = TableConstants.MAX_COL_WIDTH;
         return this.createTopLine() + this.createTabularStruct() + this.createBottomLine();
     }
 
@@ -64,13 +64,13 @@ public class VerticalLayoutManager implements LayoutManager {
         StringBuilder top = new StringBuilder();
         for (int i = 1; i <= tableWidth; i++) {
             if (i == 1)
-                top.append(TableConstants.topLeft);
+                top.append(TableConstants.TOP_LEFT);
             if (i == tableWidth)
-                top.append(TableConstants.topRight);
+                top.append(TableConstants.TOP_RIGHT);
             else if (i % colWidth == 0)
-                top.append(TableConstants.topMiddle);
+                top.append(TableConstants.TOP_MIDDLE);
             else
-                top.append(TableConstants.mid);
+                top.append(TableConstants.MID);
         }
         return top.toString();
 
@@ -82,13 +82,13 @@ public class VerticalLayoutManager implements LayoutManager {
         bottom.append("\n");
         for (int i = 1; i <= tableWidth; i++) {
             if (i == 1)
-                bottom.append(TableConstants.bottomLeft);
+                bottom.append(TableConstants.BOTTOM_LEFT);
             if (i == tableWidth)
-                bottom.append(TableConstants.bottomRight);
+                bottom.append(TableConstants.BOTTOM_RIGHT);
             else if (i % colWidth == 0)
-                bottom.append(TableConstants.bottomMiddle);
+                bottom.append(TableConstants.BOTTOM_MIDDLE);
             else
-                bottom.append(TableConstants.mid);
+                bottom.append(TableConstants.MID);
         }
         return bottom.toString();
     }
@@ -96,14 +96,14 @@ public class VerticalLayoutManager implements LayoutManager {
     private String createTabularStruct() {
         StringBuilder tableData = new StringBuilder();
         for (int j = 1; j <= rowCount; j++) {
-            tableData.append("\n" + TableConstants.verticalSeparator);
+            tableData.append("\n" + TableConstants.VERTICAL_SEPARATOR);
             for (int i = 1; i < tableWidth; i++) {
                 if (i % colWidth == 0)
-                    tableData.append(TableConstants.verticalSeparator);
+                    tableData.append(TableConstants.VERTICAL_SEPARATOR);
                 else
                     tableData.append(" ");
             }
-            tableData.append(TableConstants.verticalSeparator);
+            tableData.append(TableConstants.VERTICAL_SEPARATOR);
             if (j == rowCount)
                 break;
             tableData.append(createRowSeparator());
@@ -125,7 +125,7 @@ public class VerticalLayoutManager implements LayoutManager {
                     tableHeader.append(createCellWithoutData());
 
             }
-            tableHeader.append(TableConstants.verticalSeparator);
+            tableHeader.append(TableConstants.VERTICAL_SEPARATOR);
             if (i != rowCount)
                 tableHeader.append(createRowSeparator());
         }
@@ -141,7 +141,7 @@ public class VerticalLayoutManager implements LayoutManager {
                 tableData.append(createCellWithData(data.get(count++)[i]));
 
             }
-            tableData.append(TableConstants.verticalSeparator);
+            tableData.append(TableConstants.VERTICAL_SEPARATOR);
             if (i != rowCount - 1)
                 tableData.append(createRowSeparator());
         }
@@ -152,7 +152,7 @@ public class VerticalLayoutManager implements LayoutManager {
 
     public StringBuilder createCellWithData(String data) {
         StringBuilder cellData = new StringBuilder();
-        cellData.append(TableConstants.verticalSeparator + " ");
+        cellData.append(TableConstants.VERTICAL_SEPARATOR + " ");
         int spaceLeft = colWidth - data.length();
         cellData.append(data);
         for (int i = 2; i < spaceLeft - 1; i++)
@@ -164,7 +164,7 @@ public class VerticalLayoutManager implements LayoutManager {
 
     public StringBuilder createCellWithoutData() {
         StringBuilder builder = new StringBuilder();
-        builder.append(TableConstants.verticalSeparator);
+        builder.append(TableConstants.VERTICAL_SEPARATOR);
         for (int i = 1; i <= colWidth - 1; i++)
             builder.append(" ");
         return builder;
@@ -173,14 +173,14 @@ public class VerticalLayoutManager implements LayoutManager {
 
     private String createRowSeparator() {
         StringBuilder rowSeparator = new StringBuilder();
-        rowSeparator.append("\n" + TableConstants.leftMid);
+        rowSeparator.append("\n" + TableConstants.LEFT_MID);
         for (int i = 1; i < tableWidth; i++) {
             if (i % colWidth == 0)
-                rowSeparator.append(TableConstants.midMid);
+                rowSeparator.append(TableConstants.MID_MID);
             else
-                rowSeparator.append(TableConstants.mid);
+                rowSeparator.append(TableConstants.MID);
         }
-        rowSeparator.append(TableConstants.rightMid);
+        rowSeparator.append(TableConstants.RIGHT_MID);
         return rowSeparator.toString();
     }
 

@@ -27,7 +27,6 @@ public class TableTest {
     public void should_create_table_with_no_data_with_for_1_row_and_col() {
         Table table = new Table.Builder().withRowCount(1).withColCount(1).build();
         String actualResult = table.generate();
-        System.out.println(actualResult);
         String expectedResult =
                         "┌───────────────────┐\n" +
                         "│                   │\n" +
@@ -142,6 +141,30 @@ public class TableTest {
                         "│ flexible  │ pleasant  │ wild      │\n" +
                         "└───────────┴───────────┴───────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void should_be_able_to_create_a_table_with_headers_and_rows() {
+        VerticalLayoutManager verticalLayoutManager = new VerticalLayoutManager(3, 4);
+        String[] headers = {"Name", "Marks", "Subject"};
+        String[] row1 = {"Trump", "10", "Math"};
+        String[] row2 = {"Obama", "40", "Math"};
+        String[] row3 = {"Jamie", "60", "Math"};
+        List<String[]> tableData = new ArrayList<>();
+        tableData.add(headers);
+        tableData.add(row1);
+        tableData.add(row2);
+        tableData.add(row3);
+        String actualResult = verticalLayoutManager.createDataTable(tableData);
+        assertThat(actualResult).isEqualTo(
+                "┌────────┬────────┬────────┬────────┐\n" +
+                        "│ Name   │ Trump  │ Obama  │ Jamie  │\n" +
+                        "├────────┼────────┼────────┼────────┤\n" +
+                        "│ Marks  │ 10     │ 40     │ 60     │\n" +
+                        "├────────┼────────┼────────┼────────┤\n" +
+                        "│ Subject│ Math   │ Math   │ Math   │\n" +
+                        "└────────┴────────┴────────┴────────┘"
+        );
     }
 
 

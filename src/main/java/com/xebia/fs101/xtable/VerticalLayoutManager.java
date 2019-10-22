@@ -154,7 +154,7 @@ public class VerticalLayoutManager implements LayoutManager {
     }
 
 
-    public StringBuilder createCellWithData(String data) {
+    private StringBuilder createCellWithData(String data) {
         StringBuilder cellData = new StringBuilder();
         cellData.append(TableConstants.VERTICAL_SEPARATOR + " ");
         int spaceLeft = colWidth - data.length();
@@ -166,7 +166,7 @@ public class VerticalLayoutManager implements LayoutManager {
         return cellData;
     }
 
-    public StringBuilder createCellWithoutData() {
+    private StringBuilder createCellWithoutData() {
         StringBuilder builder = new StringBuilder();
         builder.append(TableConstants.VERTICAL_SEPARATOR);
         for (int i = 1; i <= colWidth - 1; i++)

@@ -8,8 +8,6 @@ public class HorizontalLayoutManager implements LayoutManager {
     private int rowCount;
     private int colCount;
     private int colWidth;
-    public static final String ANSI_RED = "\u001B[31m";
-
 
     HorizontalLayoutManager(int rowCount, int colCount) {
 

@@ -39,7 +39,7 @@ public class Table {
                 return layoutManager.createDataTable(rows);
             } else if (headers != null && rows == null) {
                 validateRowsAndCols();
-                return layoutManager.createTableWithOnlyHeaders(headers);
+                return layoutManager.createTableWithHeadersOnly(headers);
             } else {
                 validateRowsAndCols();
                 return layoutManager.createDataTable(rows);

@@ -23,8 +23,8 @@ public class HorizontalLayoutManagerTest {
     @Test
     public void should_create_table_with_header() {
         HorizontalLayoutManager horizontalLayoutManager = new HorizontalLayoutManager(2, 3);
-        String[] header = {"one", "two", "three"};
-        String actualResult = horizontalLayoutManager.createTableWithOnlyHeaders(header);
+        String[] headers = {"one", "two", "three"};
+        String actualResult = horizontalLayoutManager.createTableWithHeadersOnly(headers);
         String expectedResult =
                         "┌──────┬──────┬──────┐\n" +
                         "│ one  │ two  │ three│\n" +

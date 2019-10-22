@@ -30,7 +30,7 @@ public class VerticalLayoutManagerTest {
     public void should_be_able_to_create_a_table_with_headers_and_rows() {
         VerticalLayoutManager verticalLayoutManager = new VerticalLayoutManager(3, 4);
         String[] headers = {"Name", "Marks", "Subject"};
-        String[] row1 = {"Trump", "Obama", "John"};
+        String[] row1 = {"Trump", "10", "Math"};
         String[] row2 = {"10", "40", "60"};
         String[] row3 = {"Math", "Math", "Math"};
         List<String[]> tableData = new ArrayList<>();

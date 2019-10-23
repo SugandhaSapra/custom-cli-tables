@@ -1,6 +1,5 @@
 package com.xebia.fs101.xtable;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Table {
@@ -10,19 +9,22 @@ public class Table {
     private LayoutManager layoutManager;
     private Renderer renderer;
     private String[] headers;
-    private List<String[]> rows = new ArrayList<>();
+    private List<String[]> rows;
+    private int[] columnWidth;
+
 
     private Table(Builder builder) {
         rowCount = builder.rowCount;
         colCount = builder.colCount;
-        layoutManager = new HorizontalLayoutManager(rowCount, colCount);
         renderer = new ConsoleBaseRenderer();
         rows = builder.rows;
         headers = builder.headers;
+        layoutManager = builder.layoutManager;
+        columnWidth=builder.columnWidth;
     }
 
-    public void renderTable() {
-        renderer.printTable(generateTable());
+    public void render() {
+        renderer.printTable(generate());
     }
 
     public String getShape() {
@@ -30,52 +32,43 @@ public class Table {
     }
 
 
-    public String generateTable() {
+    public String generate() {
 
         if (headers != null || rows != null) {
             if (headers != null && rows != null) {
                 rows.add(0, headers);
-                validateRowsAndCols();
-                return layoutManager.createDataTable(rows);
+                return layoutManager.createDataTable(rows,columnWidth);
             } else if (headers != null && rows == null) {
-                validateRowsAndCols();
-                return layoutManager.createTableWithHeadersOnly(headers);
+                return layoutManager.createTableWithHeadersOnly(headers,columnWidth);
             } else {
-                validateRowsAndCols();
-                return layoutManager.createDataTable(rows);
+
+                return layoutManager.createDataTable(rows,columnWidth);
             }
 
         } else
-            validateRowsAndCols();
-        return layoutManager.createTable();
+
+            return layoutManager.createTable(columnWidth);
 
     }
-
-    private void validateRowsAndCols() {
-        if (rowCount < 0 || colCount < 0)
-            throw new IllegalArgumentException("Row and Col should be greater than 0");
-        if (headers != null && headers.length != colCount)
-            throw new IllegalArgumentException("Please pass according to the number of cols");
-        if (rows != null && rows.size() != rowCount)
-            throw new IllegalArgumentException("Please pass according to the number of rows");
-        if (rows != null) {
-            for (String cells[] : rows) {
-                if (cells.length != colCount)
-                    throw new IllegalArgumentException("Please pass according to the number of rows");
-            }
-        }
-    }
-
 
     public static final class Builder {
+
         private int rowCount;
         private int colCount;
         private LayoutManager layoutManager;
         private Renderer renderer;
         private List<String[]> rows;
         private String[] headers;
+        private TableLayoutFactory tableLayoutFactory;
+        private int[] columnWidth;
 
         public Builder() {
+        }
+
+        public Builder withColumnWidth(int[] val)
+        {
+            columnWidth=val;
+            return this;
         }
 
         public Builder withRowCount(int val) {
@@ -103,8 +96,26 @@ public class Table {
             return this;
         }
 
+        public Builder withHorizontalLayoutManger() {
+            tableLayoutFactory = new TableLayoutFactory();
+            layoutManager = tableLayoutFactory.getLayoutManager(TableLayout.HORIZONTAL, rowCount, colCount);
+            return this;
+
+        }
+
+        public Builder withVerticalLayoutManger() {
+            tableLayoutFactory = new TableLayoutFactory();
+            layoutManager = tableLayoutFactory.getLayoutManager(TableLayout.VERTICAL, rowCount, colCount);
+            return this;
+        }
+
+
         public Table build() {
             return new Table(this);
         }
+
+
     }
+
+
 }

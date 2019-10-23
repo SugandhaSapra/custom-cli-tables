@@ -19,16 +19,16 @@ public class TableTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_exception_when_row_count_or_col_count_is_less_than_0() {
-        Table table =new Table.Builder().withRowCount(-1).withColCount(-1).build();
+        Table table =new Table.Builder().withRowCount(-1).withColCount(-1).withHorizontalLayoutManger().build();
         table.generate();
     }
 
     @Test
     public void should_create_table_with_no_data_with_for_1_row_and_col() {
-        Table table = new Table.Builder().withRowCount(1).withColCount(1).build();
+        Table table = new Table.Builder().withRowCount(1).withColCount(1).withHorizontalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌───────────────────┐\n" +
+                        "┌───────────────────┐\n" +
                         "│                   │\n" +
                         "└───────────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
@@ -37,10 +37,10 @@ public class TableTest {
     @Test
     public void should_create_table_with_only_header(){
         String[] header={"one","two","three"};
-        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).build();
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).withHorizontalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌──────┬──────┬──────┐\n" +
+                        "┌──────┬──────┬──────┐\n" +
                         "│ one  │ two  │ three│\n" +
                         "├──────┼──────┼──────┤\n" +
                         "│      │      │      │\n" +
@@ -52,7 +52,7 @@ public class TableTest {
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_exception_if_headers_are_less_than_cols() {
         String[] cells={"one","two"};
-        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(cells).build();
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(cells).withHorizontalLayoutManger().build();
         table.generate();
 
     }
@@ -70,10 +70,10 @@ public class TableTest {
         tableData.add(row2);
         tableData.add(row3);
         tableData.add(row4);
-        Table table = new Table.Builder().withRowCount(4).withColCount(3).withRows(tableData).build();
+        Table table = new Table.Builder().withRowCount(4).withColCount(3).withRows(tableData).withHorizontalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌───────────┬───────────┬───────────┐\n" +
+                        "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
                         "├───────────┼───────────┼───────────┤\n" +
                         "│ test      │ logic     │ user      │\n" +
@@ -97,7 +97,7 @@ public class TableTest {
         tableData.add(row2);
         tableData.add(row3);
         tableData.add(row4);
-        Table table = new Table.Builder().withRowCount(4).withColCount(1).withRows(tableData).build();
+        Table table = new Table.Builder().withRowCount(4).withColCount(1).withRows(tableData).withHorizontalLayoutManger().build();
         table.generate();
     }
 
@@ -113,7 +113,7 @@ public class TableTest {
         tableData.add(row2);
         tableData.add(row3);
         tableData.add(row4);
-        Table table = new Table.Builder().withRowCount(2).withColCount(3).withRows(tableData).build();
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withRows(tableData).withHorizontalLayoutManger().build();
         table.generate();
     }
 
@@ -128,10 +128,10 @@ public class TableTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(header).withRows(tableData).build();
+        Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(header).withHorizontalLayoutManger().withRows(tableData).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌───────────┬───────────┬───────────┐\n" +
+                        "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
                         "├───────────┼───────────┼───────────┤\n" +
                         "│ test      │ logic     │ user      │\n" +
@@ -147,7 +147,7 @@ public class TableTest {
     public void should_be_able_to_create_a_vertical_table_with_headers() {
 
         String[] headers = {"Name", "Marks", "Subject"};
-        Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(headers).withTableLayout(TableLayout.VERTICAL).build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(headers).withVerticalLayoutManger().build();
         String actualResult = table.generate();
         assertThat(actualResult).isEqualTo(
                                "┌────────┬────────┬────────┬────────┐\n" +
@@ -172,10 +172,10 @@ public class TableTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(3).withColCount(4).withRows(tableData).withTableLayout(TableLayout.VERTICAL).build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(4).withRows(tableData).withVerticalLayoutManger().build();
         String actualResult = table.generate();
         assertThat(actualResult).isEqualTo(
-                "┌────────┬────────┬────────┬────────┐\n" +
+                        "┌────────┬────────┬────────┬────────┐\n" +
                         "│ Name   │ Trump  │ Obama  │ Jamie  │\n" +
                         "├────────┼────────┼────────┼────────┤\n" +
                         "│ Marks  │ 10     │ 40     │ 60     │\n" +
@@ -184,7 +184,4 @@ public class TableTest {
                         "└────────┴────────┴────────┴────────┘"
         );
     }
-
-
-
 }

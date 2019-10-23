@@ -16,7 +16,7 @@ public class VerticalLayoutManagerTest {
         String[] cells = {"one", "two", "three"};
         String result = verticalLayoutManager.createTableWithHeadersOnly(cells);
         assertThat(result).isEqualTo(
-                "┌──────┬──────┬──────┬──────┐\n" +
+                        "┌──────┬──────┬──────┬──────┐\n" +
                         "│ one  │      │      │      │\n" +
                         "├──────┼──────┼──────┼──────┤\n" +
                         "│ two  │      │      │      │\n" +
@@ -28,7 +28,7 @@ public class VerticalLayoutManagerTest {
 
     @Test
     public void should_be_able_to_create_a_table_with_headers_and_rows() {
-        VerticalLayoutManager verticalLayoutManager = new VerticalLayoutManager(3, 4);
+        LayoutManager verticalLayoutManager = new VerticalLayoutManager(3, 4);
         String[] headers = {"Name", "Marks", "Subject"};
         String[] row1 = {"Trump", "10", "Math"};
         String[] row2 = {"Obama", "40", "Math"};
@@ -40,7 +40,7 @@ public class VerticalLayoutManagerTest {
         tableData.add(row3);
         String actualResult = verticalLayoutManager.createDataTable(tableData);
         assertThat(actualResult).isEqualTo(
-                "┌────────┬────────┬────────┬────────┐\n" +
+                        "┌────────┬────────┬────────┬────────┐\n" +
                         "│ Name   │ Trump  │ Obama  │ Jamie  │\n" +
                         "├────────┼────────┼────────┼────────┤\n" +
                         "│ Marks  │ 10     │ 40     │ 60     │\n" +
@@ -51,7 +51,7 @@ public class VerticalLayoutManagerTest {
     }
     @Test
     public void should_be_able_to_create_an_empty_structure() {
-        VerticalLayoutManager verticalLayoutManager = new VerticalLayoutManager(1,2);
+        LayoutManager verticalLayoutManager = new VerticalLayoutManager(1,2);
         String actualResult = verticalLayoutManager.createTable();
         String expectedResult =
                         "┌───────────────────┬───────────────────┐\n" +

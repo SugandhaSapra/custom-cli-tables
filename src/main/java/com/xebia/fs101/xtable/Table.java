@@ -10,7 +10,7 @@ public class Table {
     private Renderer renderer;
     private String[] headers;
     private List<String[]> rows;
-    private TableLayout tableLayout;
+
 
     private Table(Builder builder) {
         rowCount = builder.rowCount;
@@ -18,11 +18,7 @@ public class Table {
         renderer = new ConsoleBaseRenderer();
         rows = builder.rows;
         headers = builder.headers;
-        tableLayout=builder.tableLayout;
-        if(tableLayout==TableLayout.VERTICAL)
-            layoutManager = new VerticalLayoutManager(rowCount, colCount);
-        else
-            layoutManager=new HorizontalLayoutManager(rowCount,colCount);
+        layoutManager = builder.layoutManager;
     }
 
     public void render() {
@@ -39,64 +35,29 @@ public class Table {
         if (headers != null || rows != null) {
             if (headers != null && rows != null) {
                 rows.add(0, headers);
-                validate(layoutManager);
                 return layoutManager.createDataTable(rows);
             } else if (headers != null && rows == null) {
-                validate(layoutManager);
                 return layoutManager.createTableWithHeadersOnly(headers);
             } else {
-                validate(layoutManager);
+
                 return layoutManager.createDataTable(rows);
             }
 
         } else
-            validate(layoutManager);
-        return layoutManager.createTable();
+
+            return layoutManager.createTable();
 
     }
-
-    private void validate(LayoutManager layoutManager) {
-        if(layoutManager instanceof  VerticalLayoutManager) {
-           if(rowCount<0 ||colCount<0)
-                throw new IllegalArgumentException("Row and col should be greater than 0");
-            if(headers!=null && headers.length!=rowCount)
-                throw new IllegalArgumentException("Please pass according to number of rows");
-            if (rows != null && rows.size() != colCount)
-                throw new IllegalArgumentException("Please pass according to the number of cols");
-            if (rows != null) {
-                for (String cells[] : rows) {
-                    if (cells.length != rowCount)
-                        throw new IllegalArgumentException("Please pass according to the number of rows");
-                }
-            }
-
-        }
-        else
-        {
-            if (rowCount < 0 || colCount < 0)
-                throw new IllegalArgumentException("Row and Col should be greater than 0");
-            if (headers != null && headers.length != colCount)
-                throw new IllegalArgumentException("Please pass according to the number of cols");
-            if (rows != null && rows.size() != rowCount)
-                throw new IllegalArgumentException("Please pass according to the number of rows");
-            if (rows != null) {
-                for (String cells[] : rows) {
-                    if (cells.length != colCount)
-                        throw new IllegalArgumentException("Please pass according to the number of rows");
-                }
-            }
-        }
-    }
-
 
     public static final class Builder {
+
         private int rowCount;
         private int colCount;
         private LayoutManager layoutManager;
         private Renderer renderer;
         private List<String[]> rows;
         private String[] headers;
-        private TableLayout tableLayout;
+        private TableLayoutFactory tableLayoutFactory;
 
         public Builder() {
         }
@@ -125,8 +86,17 @@ public class Table {
             rows = val;
             return this;
         }
-        public Builder withTableLayout(TableLayout val) {
-            tableLayout = val;
+
+        public Builder withHorizontalLayoutManger() {
+            tableLayoutFactory = new TableLayoutFactory();
+            layoutManager = tableLayoutFactory.getLayoutManager(TableLayout.HORIZONTAL, rowCount, colCount);
+            return this;
+
+        }
+
+        public Builder withVerticalLayoutManger() {
+            tableLayoutFactory = new TableLayoutFactory();
+            layoutManager = tableLayoutFactory.getLayoutManager(TableLayout.VERTICAL, rowCount, colCount);
             return this;
         }
 
@@ -134,6 +104,8 @@ public class Table {
         public Table build() {
             return new Table(this);
         }
+
+
     }
 
 

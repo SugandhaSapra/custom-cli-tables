@@ -14,7 +14,7 @@ public class HorizontalLayoutManagerTest {
         LayoutManager horizontalLayoutManager = new HorizontalLayoutManager(1, 2);
         String actualResult = horizontalLayoutManager.createTable();
         String expectedResult =
-                "┌───────────────────┬───────────────────┐\n" +
+                        "┌───────────────────┬───────────────────┐\n" +
                         "│                   │                   │\n" +
                         "└───────────────────┴───────────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
@@ -26,7 +26,7 @@ public class HorizontalLayoutManagerTest {
         String[] headers = {"one", "two", "three"};
         String actualResult = horizontalLayoutManager.createTableWithHeadersOnly(headers);
         String expectedResult =
-                "┌──────┬──────┬──────┐\n" +
+                        "┌──────┬──────┬──────┐\n" +
                         "│ one  │ two  │ three│\n" +
                         "├──────┼──────┼──────┤\n" +
                         "│      │      │      │\n" +
@@ -48,7 +48,7 @@ public class HorizontalLayoutManagerTest {
         tabledata.add(row4);
         String actualResult = horizontalLayoutManager.createDataTable(tabledata);
         String expectedResult =
-                "┌───────────┬───────────┬───────────┐\n" +
+                        "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
                         "├───────────┼───────────┼───────────┤\n" +
                         "│ test      │ logic     │ user      │\n" +

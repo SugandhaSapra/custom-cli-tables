@@ -131,7 +131,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(4).withColCount(3).withHeader(header).withHorizontalLayoutManger().withRows(tableData).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌───────────┬───────────┬───────────┐\n" +
+                        "┌───────────┬───────────┬───────────┐\n" +
                         "│ one       │ two       │ three     │\n" +
                         "├───────────┼───────────┼───────────┤\n" +
                         "│ test      │ logic     │ user      │\n" +
@@ -150,7 +150,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(headers).withVerticalLayoutManger().build();
         String actualResult = table.generate();
         assertThat(actualResult).isEqualTo(
-                "┌────────┬────────┬────────┬────────┐\n" +
+                        "┌────────┬────────┬────────┬────────┐\n" +
                         "│ Name   │        │        │        │\n" +
                         "├────────┼────────┼────────┼────────┤\n" +
                         "│ Marks  │        │        │        │\n" +
@@ -175,7 +175,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(4).withRows(tableData).withVerticalLayoutManger().build();
         String actualResult = table.generate();
         assertThat(actualResult).isEqualTo(
-                "┌────────┬────────┬────────┬────────┐\n" +
+                        "┌────────┬────────┬────────┬────────┐\n" +
                         "│ Name   │ Trump  │ Obama  │ Jamie  │\n" +
                         "├────────┼────────┼────────┼────────┤\n" +
                         "│ Marks  │ 10     │ 40     │ 60     │\n" +

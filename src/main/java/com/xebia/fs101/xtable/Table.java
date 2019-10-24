@@ -1,6 +1,13 @@
 package com.xebia.fs101.xtable;
 
+import com.xebia.fs101.xtable.layout_manager.LayoutManager;
+import com.xebia.fs101.xtable.layout_manager.TableLayoutFactory;
+import com.xebia.fs101.xtable.renderer.ConsoleBaseRenderer;
+import com.xebia.fs101.xtable.renderer.Renderer;
+
 import java.util.List;
+
+import static com.xebia.fs101.xtable.layout_manager.TableLayout.*;
 
 public class Table {
 
@@ -10,6 +17,7 @@ public class Table {
     private Renderer renderer;
     private String[] headers;
     private List<String[]> rows;
+    private int[] columnWidth;
 
 
     private Table(Builder builder) {
@@ -19,6 +27,7 @@ public class Table {
         rows = builder.rows;
         headers = builder.headers;
         layoutManager = builder.layoutManager;
+        columnWidth = builder.columnWidth;
     }
 
     public void render() {
@@ -58,8 +67,14 @@ public class Table {
         private List<String[]> rows;
         private String[] headers;
         private TableLayoutFactory tableLayoutFactory;
+        private int[] columnWidth;
 
         public Builder() {
+        }
+
+        public Builder withColumnWidth(int[] val) {
+            columnWidth = val;
+            return this;
         }
 
         public Builder withRowCount(int val) {
@@ -89,17 +104,28 @@ public class Table {
 
         public Builder withHorizontalLayoutManger() {
             tableLayoutFactory = new TableLayoutFactory();
-            layoutManager = tableLayoutFactory.getLayoutManager(TableLayout.HORIZONTAL, rowCount, colCount);
+            layoutManager = tableLayoutFactory.getLayoutManager(HORIZONTAL, rowCount, colCount);
             return this;
 
         }
 
         public Builder withVerticalLayoutManger() {
             tableLayoutFactory = new TableLayoutFactory();
-            layoutManager = tableLayoutFactory.getLayoutManager(TableLayout.VERTICAL, rowCount, colCount);
+            layoutManager = tableLayoutFactory.getLayoutManager(VERTICAL, rowCount, colCount);
             return this;
         }
+        public Builder withHorizontalLayoutMangerWithColWidth() {
+            tableLayoutFactory = new TableLayoutFactory();
+            layoutManager = tableLayoutFactory.getLayoutManager(HORIZONTAL, rowCount, colCount,columnWidth);
+            return this;
 
+        }
+
+        public Builder withVerticalLayoutMangerWithColWidth() {
+            tableLayoutFactory = new TableLayoutFactory();
+            layoutManager = tableLayoutFactory.getLayoutManager(VERTICAL, rowCount, colCount,columnWidth);
+            return this;
+        }
 
         public Table build() {
             return new Table(this);
@@ -107,6 +133,5 @@ public class Table {
 
 
     }
-
 
 }

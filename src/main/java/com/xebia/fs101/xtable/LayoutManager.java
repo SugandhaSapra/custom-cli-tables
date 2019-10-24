@@ -8,6 +8,7 @@ public abstract class LayoutManager {
     public int rowCount;
     public int colCount;
     protected int colWidth;
+    //private int defaultColumnWidth=20;
     protected final int START_POSITION=0;
 
     public String createTable(int[]  columnWidth)
@@ -19,7 +20,7 @@ public abstract class LayoutManager {
 
     public abstract String createDataTable(List<String[]> rows,int[] columnWidth);
 
-    public String createTopLine(int[] columnWidth) {
+    protected String createTopLine(int[] columnWidth) {
         StringBuilder top = new StringBuilder();
         top.append(TOP_LEFT);
         for(int i=0;i<colCount;i++)
@@ -95,6 +96,25 @@ public abstract class LayoutManager {
         StringBuilder data=new StringBuilder(trimData);
         data.append("..");
         return data.toString();
+    }
+    protected   StringBuilder createCellWithData(String data,int colWidth) {
+        StringBuilder cellData = new StringBuilder();
+        cellData.append(TableConstants.VERTICAL_SEPARATOR + " ");
+        int spaceLeft = colWidth - data.length();
+        cellData.append(data);
+        for (int i = 2; i < spaceLeft - 1; i++)
+            cellData.append(" ");
+        if (data.length() != colWidth - 2)
+            cellData.append(" ");
+        return cellData;
+    }
+
+    protected StringBuilder createCellWithoutData(int colWidth) {
+        StringBuilder builder = new StringBuilder();
+        builder.append(TableConstants.VERTICAL_SEPARATOR);
+        for (int i = 1; i <= colWidth - 1; i++)
+            builder.append(" ");
+        return builder;
     }
 
 }

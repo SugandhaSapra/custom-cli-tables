@@ -41,7 +41,7 @@ public class HorizontalLayoutManagerTest {
 
         String actualResult = horizontalLayoutManager.createTableWithHeadersOnly(headers,new int[]{20,20,20});
         String expectedResult =
-                        "┌───────────────────┬───────────────────┬───────────────────┐\n" +
+                                "┌───────────────────┬───────────────────┬───────────────────┐\n" +
                                 "│ one               │ two               │ three             │\n" +
                                 "├───────────────────┼───────────────────┼───────────────────┤\n" +
                                 "│                   │                   │                   │\n" +
@@ -55,7 +55,7 @@ public class HorizontalLayoutManagerTest {
 
         String actualResult = horizontalLayoutManager.createTableWithHeadersOnly(headers,new int[]{10,20,30});
         String expectedResult =
-               "┌─────────┬───────────────────┬─────────────────────────────┐\n" +
+                       "┌─────────┬───────────────────┬─────────────────────────────┐\n" +
                        "│ one     │ two               │ three                       │\n" +
                        "├─────────┼───────────────────┼─────────────────────────────┤\n" +
                        "│         │                   │                             │\n" +
@@ -77,7 +77,7 @@ public class HorizontalLayoutManagerTest {
         tabledata.add(row4);
         String actualResult = horizontalLayoutManager.createDataTable(tabledata,new int[]{20,20,20});
         String expectedResult =
-                "┌───────────────────┬───────────────────┬───────────────────┐\n" +
+                        "┌───────────────────┬───────────────────┬───────────────────┐\n" +
                         "│ one               │ two               │ three             │\n" +
                         "├───────────────────┼───────────────────┼───────────────────┤\n" +
                         "│ test              │ logic             │ user              │\n" +
@@ -103,7 +103,7 @@ public class HorizontalLayoutManagerTest {
         tabledata.add(row4);
         String actualResult = horizontalLayoutManager.createDataTable(tabledata,new int[]{20,40,60});
         String expectedResult =
-                "┌───────────────────┬───────────────────────────────────────┬───────────────────────────────────────────────────────────┐\n" +
+                        "┌───────────────────┬───────────────────────────────────────┬───────────────────────────────────────────────────────────┐\n" +
                         "│ one               │ two                                   │ three                                                     │\n" +
                         "├───────────────────┼───────────────────────────────────────┼───────────────────────────────────────────────────────────┤\n" +
                         "│ test              │ logic                                 │ user                                                      │\n" +
@@ -122,7 +122,7 @@ public class HorizontalLayoutManagerTest {
 
         String actualResult = horizontalLayoutManager.createTableWithHeadersOnly(headers,new int[]{10,5,5});
         String expectedResult =
-                "┌─────────┬────┬────┐\n" +
+                        "┌─────────┬────┬────┐\n" +
                         "│ one     │ two│ t..│\n" +
                         "├─────────┼────┼────┤\n" +
                         "│         │    │    │\n" +
@@ -142,7 +142,7 @@ public class HorizontalLayoutManagerTest {
         tabledata.add(row3);
         String actualResult = horizontalLayoutManager.createDataTable(tabledata,new int[]{10,20,10});
         String expectedResult =
-                "┌─────────┬───────────────────┬─────────┐\n" +
+                        "┌─────────┬───────────────────┬─────────┐\n" +
                         "│ test    │ logic             │ user    │\n" +
                         "├─────────┼───────────────────┼─────────┤\n" +
                         "│ assump..│ great             │ reflec..│\n" +

@@ -28,7 +28,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(1).withColCount(1).withHorizontalLayoutManger().withColumnWidth(new int[]{10}).build();
         String actualResult = table.generate();
         String expectedResult =
-                        "┌─────────┐\n" +
+                                "┌─────────┐\n" +
                                 "│         │\n" +
                                 "└─────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
@@ -40,7 +40,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).withHorizontalLayoutManger().withColumnWidth(new int[]{10,10,10}).build();
         String actualResult = table.generate();
         String expectedResult =
-                        "┌─────────┬─────────┬─────────┐\n" +
+                                "┌─────────┬─────────┬─────────┐\n" +
                                 "│ one     │ two     │ three   │\n" +
                                 "├─────────┼─────────┼─────────┤\n" +
                                 "│         │         │         │\n" +
@@ -54,7 +54,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).withHorizontalLayoutManger().withColumnWidth(new int[]{10,20,30}).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌─────────┬───────────────────┬─────────────────────────────┐\n" +
+                        "┌─────────┬───────────────────┬─────────────────────────────┐\n" +
                         "│ one     │ two               │ three                       │\n" +
                         "├─────────┼───────────────────┼─────────────────────────────┤\n" +
                         "│         │                   │                             │\n" +
@@ -85,7 +85,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withHorizontalLayoutManger().withColumnWidth(new int[]{15,15,15}).build();
         String actualResult = table.generate();
         String expectedResult =
-                        "┌──────────────┬──────────────┬──────────────┐\n" +
+                                "┌──────────────┬──────────────┬──────────────┐\n" +
                                 "│ one          │ two          │ three        │\n" +
                                 "├──────────────┼──────────────┼──────────────┤\n" +
                                 "│ test         │ logic        │ user         │\n" +
@@ -107,7 +107,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withHorizontalLayoutManger().withColumnWidth(new int[]{15,40,12}).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌──────────────┬───────────────────────────────────────┬───────────┐\n" +
+                        "┌──────────────┬───────────────────────────────────────┬───────────┐\n" +
                         "│ one          │ two                                   │ three     │\n" +
                         "├──────────────┼───────────────────────────────────────┼───────────┤\n" +
                         "│ test         │ logic                                 │ user      │\n" +
@@ -157,7 +157,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(headers).withVerticalLayoutManger().withColumnWidth(new int[]{12,12,12,12}).build();
         String actualResult = table.generate();
         String expectResult=
-                       "┌───────────┬───────────┬───────────┬───────────┐\n" +
+                               "┌───────────┬───────────┬───────────┬───────────┐\n" +
                                "│ Name      │           │           │           │\n" +
                                "├───────────┼───────────┼───────────┼───────────┤\n" +
                                "│ Marks     │           │           │           │\n" +
@@ -174,7 +174,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(headers).withVerticalLayoutManger().withColumnWidth(new int[]{20,5,10,5}).build();
         String actualResult = table.generate();
         String expectResult=
-               "┌───────────────────┬────┬─────────┬────┐\n" +
+                       "┌───────────────────┬────┬─────────┬────┐\n" +
                        "│ Name              │    │         │    │\n" +
                        "├───────────────────┼────┼─────────┼────┤\n" +
                        "│ Marks             │    │         │    │\n" +
@@ -200,7 +200,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(4).withRows(tableData).withVerticalLayoutManger().withColumnWidth(new int[]{12,12,12,12}).build();
         String actualResult = table.generate();
         String expectedResult=
-                "┌───────────┬───────────┬───────────┬───────────┐\n" +
+                        "┌───────────┬───────────┬───────────┬───────────┐\n" +
                         "│ Name      │ Trump     │ Obama     │ Jamie     │\n" +
                         "├───────────┼───────────┼───────────┼───────────┤\n" +
                         "│ Marks     │ 10        │ 40        │ 60        │\n" +
@@ -224,7 +224,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(4).withRows(tableData).withVerticalLayoutManger().withColumnWidth(new int[]{15,40,20,15}).build();
         String actualResult = table.generate();
         String expectedResult=
-                "┌──────────────┬───────────────────────────────────────┬───────────────────┬──────────────┐\n" +
+                        "┌──────────────┬───────────────────────────────────────┬───────────────────┬──────────────┐\n" +
                         "│ Name         │ Trump                                 │ Obama             │ Jamie        │\n" +
                         "├──────────────┼───────────────────────────────────────┼───────────────────┼──────────────┤\n" +
                         "│ Marks        │ 10                                    │ 40                │ 60           │\n" +
@@ -245,7 +245,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withHorizontalLayoutManger().withColumnWidth(new int[]{8,10,10}).build();
         String actualResult = table.generate();
         String expectedResult =
-                "┌───────┬─────────┬─────────┐\n" +
+                        "┌───────┬─────────┬─────────┐\n" +
                         "│ one   │ two     │ three   │\n" +
                         "├───────┼─────────┼─────────┤\n" +
                         "│ test  │ logic   │ user    │\n" +

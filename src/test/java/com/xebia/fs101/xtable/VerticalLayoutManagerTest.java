@@ -75,7 +75,7 @@ public class VerticalLayoutManagerTest {
         tableData.add(row3);
         String actualResult = verticalLayoutManager.createDataTable(tableData,new int[]{15,15,15,15});
         String expectedResult=
-                "┌──────────────┬──────────────┬──────────────┬──────────────┐\n" +
+                        "┌──────────────┬──────────────┬──────────────┬──────────────┐\n" +
                         "│ Name         │ Trump        │ Obama        │ Jamie        │\n" +
                         "├──────────────┼──────────────┼──────────────┼──────────────┤\n" +
                         "│ Marks        │ 10           │ 40           │ 60           │\n" +
@@ -99,7 +99,7 @@ public class VerticalLayoutManagerTest {
         tableData.add(row3);
         String actualResult = verticalLayoutManager.createDataTable(tableData,new int[]{15,10,30,20});
         String expectedResult=
-                "┌──────────────┬─────────┬─────────────────────────────┬───────────────────┐\n" +
+                        "┌──────────────┬─────────┬─────────────────────────────┬───────────────────┐\n" +
                         "│ Name         │ Trump   │ Obama                       │ Jamie             │\n" +
                         "├──────────────┼─────────┼─────────────────────────────┼───────────────────┤\n" +
                         "│ Marks        │ 10      │ 40                          │ 60                │\n" +
@@ -114,7 +114,7 @@ public class VerticalLayoutManagerTest {
         String[] cells = {"three", "t"};
         String actualResult = verticalLayoutManager.createTableWithHeadersOnly(cells,new int[]{5,5,5});
         String expectedResult=
-                "┌────┬────┬────┐\n" +
+                        "┌────┬────┬────┐\n" +
                         "│ t..│    │    │\n" +
                         "├────┼────┼────┤\n" +
                         "│ t  │    │    │\n" +
@@ -137,7 +137,7 @@ public class VerticalLayoutManagerTest {
         tableData.add(row3);
         String actualResult = verticalLayoutManager.createDataTable(tableData,new int[]{10,5,10,10});
         String expectedResult=
-                "┌─────────┬────┬─────────┬─────────┐\n" +
+                        "┌─────────┬────┬─────────┬─────────┐\n" +
                         "│ Name    │ D..│ Obama   │ Jamie ..│\n" +
                         "├─────────┼────┼─────────┼─────────┤\n" +
                         "│ Marks   │ 10 │ 40      │ 60      │\n" +

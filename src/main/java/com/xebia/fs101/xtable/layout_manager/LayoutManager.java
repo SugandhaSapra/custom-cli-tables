@@ -121,7 +121,7 @@ public abstract class LayoutManager {
         return columnWidths;
     }
 
-    protected int[] setColumnWidthToDefault(int[] colWidth) {
+    protected int[] setColumnWidthToDefaultForLessThan5(int[] colWidth) {
         for (int i = 0; i < colCount; i++) {
             if (colWidth[i] < 5)
                 colWidth[i] = MAX_COL_WIDTH;

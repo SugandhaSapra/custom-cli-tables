@@ -15,7 +15,7 @@ public class VerticalLayoutManager extends LayoutManager {
     VerticalLayoutManager(int rowCount, int colCount, int[] colWidth) {
         this.rowCount = rowCount;
         this.colCount = colCount;
-        this.columnWidths = setColumnWidthToDefault(colWidth);
+        this.columnWidths = setColumnWidthToDefaultForLessThan5(colWidth);
     }
 
     public String createDataTable(List<String[]> rows) {

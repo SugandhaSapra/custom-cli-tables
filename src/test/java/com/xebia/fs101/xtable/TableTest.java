@@ -35,7 +35,7 @@ public class TableTest {
 
     @Test
     public void should_create_table_with_no_data_with_1_row_and_col_and_customized_width() {
-        Table table = new Table.Builder().withRowCount(1).withColCount(1).withColumnWidth(new int[]{10}).withHorizontalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(1).withColCount(1).withColumnWidth(new int[]{10}).withHorizontalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult =
                         "┌─────────┐\n" +
@@ -47,7 +47,7 @@ public class TableTest {
     @Test
     public void should_create_horizontal_table_with_only_header(){
         String[] header={"one","two","three"};
-        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).withColumnWidth(new int[]{10,10,10}).withHorizontalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).withColumnWidth(new int[]{10,10,10}).withHorizontalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult =
                         "┌─────────┬─────────┬─────────┐\n" +
@@ -61,7 +61,7 @@ public class TableTest {
     @Test
     public void should_create_horizontal_table_with_only_header_and_custom_column_width(){
         String[] header={"one","two","three"};
-        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).withColumnWidth(new int[]{10,20,30}).withHorizontalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(2).withColCount(3).withHeader(header).withColumnWidth(new int[]{10,20,30}).withHorizontalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult =
                         "┌─────────┬───────────────────┬─────────────────────────────┐\n" +
@@ -92,7 +92,7 @@ public class TableTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withColumnWidth(new int[]{15,15,15}).withHorizontalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withColumnWidth(new int[]{15,15,15}).withHorizontalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult =
                         "┌──────────────┬──────────────┬──────────────┐\n" +
@@ -114,7 +114,7 @@ public class TableTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withColumnWidth(new int[]{15,40,12}).withHorizontalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withColumnWidth(new int[]{15,40,12}).withHorizontalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult =
                         "┌──────────────┬───────────────────────────────────────┬───────────┐\n" +
@@ -164,7 +164,7 @@ public class TableTest {
     public void should_be_able_to_create_a_vertical_table_with_headers() {
 
         String[] headers = {"Name", "Marks", "Subject"};
-        Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(headers).withColumnWidth(new int[]{12,12,12,12}).withVerticalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(headers).withColumnWidth(new int[]{12,12,12,12}).withVerticalLayoutManger().build();
         String actualResult = table.generate();
         String expectResult=
                         "┌───────────┬───────────┬───────────┬───────────┐\n" +
@@ -181,7 +181,7 @@ public class TableTest {
     public void should_be_able_to_create_a_vertical_table_with_headers_and_custom_column_width() {
 
         String[] headers = {"Name", "Marks", "Subject"};
-        Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(headers).withColumnWidth(new int[]{20,5,10,5}).withVerticalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(4).withHeader(headers).withColumnWidth(new int[]{20,5,10,5}).withVerticalLayoutManger().build();
         String actualResult = table.generate();
         String expectResult=
                         "┌───────────────────┬────┬─────────┬────┐\n" +
@@ -207,7 +207,7 @@ public class TableTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(3).withColCount(4).withRows(tableData).withColumnWidth(new int[]{12,12,12,12}).withVerticalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(4).withRows(tableData).withColumnWidth(new int[]{12,12,12,12}).withVerticalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult=
                         "┌───────────┬───────────┬───────────┬───────────┐\n" +
@@ -231,7 +231,7 @@ public class TableTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(3).withColCount(4).withRows(tableData).withColumnWidth(new int[]{15,40,20,15}).withVerticalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(4).withRows(tableData).withColumnWidth(new int[]{15,40,20,15}).withVerticalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult=
                         "┌──────────────┬───────────────────────────────────────┬───────────────────┬──────────────┐\n" +
@@ -252,7 +252,7 @@ public class TableTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withColumnWidth(new int[]{8,10,10}).withHorizontalLayoutMangerWithColWidth().build();
+        Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withColumnWidth(new int[]{8,10,10}).withHorizontalLayoutManger().build();
         String actualResult = table.generate();
         String expectedResult =
                         "┌───────┬─────────┬─────────┐\n" +

@@ -7,7 +7,8 @@ import com.xebia.fs101.xtable.renderer.Renderer;
 
 import java.util.List;
 
-import static com.xebia.fs101.xtable.layout_manager.TableLayout.*;
+import static com.xebia.fs101.xtable.layout_manager.TableLayout.HORIZONTAL;
+import static com.xebia.fs101.xtable.layout_manager.TableLayout.VERTICAL;
 
 public class Table {
 
@@ -53,9 +54,7 @@ public class Table {
             }
 
         } else
-
             return layoutManager.createTable();
-
     }
 
     public static final class Builder {
@@ -104,27 +103,22 @@ public class Table {
 
         public Builder withHorizontalLayoutManger() {
             tableLayoutFactory = new TableLayoutFactory();
-            layoutManager = tableLayoutFactory.getLayoutManager(HORIZONTAL, rowCount, colCount);
+            if (columnWidth != null && columnWidth.length > 0)
+                layoutManager = tableLayoutFactory.getLayoutManager(HORIZONTAL, rowCount, colCount, columnWidth);
+            else
+                layoutManager = tableLayoutFactory.getLayoutManager(HORIZONTAL, rowCount, colCount);
             return this;
 
         }
 
         public Builder withVerticalLayoutManger() {
             tableLayoutFactory = new TableLayoutFactory();
-            layoutManager = tableLayoutFactory.getLayoutManager(VERTICAL, rowCount, colCount);
-            return this;
-        }
-        public Builder withHorizontalLayoutMangerWithColWidth() {
-            tableLayoutFactory = new TableLayoutFactory();
-            layoutManager = tableLayoutFactory.getLayoutManager(HORIZONTAL, rowCount, colCount,columnWidth);
+            if (columnWidth != null && columnWidth.length > 0)
+                layoutManager = tableLayoutFactory.getLayoutManager(VERTICAL, rowCount, colCount, columnWidth);
+            else
+                layoutManager = tableLayoutFactory.getLayoutManager(VERTICAL, rowCount, colCount);
             return this;
 
-        }
-
-        public Builder withVerticalLayoutMangerWithColWidth() {
-            tableLayoutFactory = new TableLayoutFactory();
-            layoutManager = tableLayoutFactory.getLayoutManager(VERTICAL, rowCount, colCount,columnWidth);
-            return this;
         }
 
         public Table build() {

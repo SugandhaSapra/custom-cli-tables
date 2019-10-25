@@ -56,9 +56,8 @@ public class Table {
         private Renderer renderer;
         private List<String[]> rows;
         private String[] headers;
-        private TableLayoutFactory tableLayoutFactory;
         private int[] columnWidth;
-        private TableLayout tableLayout;
+
 
         public Builder() {
         }

@@ -44,11 +44,6 @@ public class VerticalLayout extends LayoutTemplate {
         }
         return tableData.toString();
     }
-    private void validate(String[] headers) {
-        validate();
-        if (headers != null && headers.length != rowCount)
-            throw new IllegalArgumentException("Please pass according to number of rows");
-    }
 
     protected void validate(List<String[]> rows) {
         validate();

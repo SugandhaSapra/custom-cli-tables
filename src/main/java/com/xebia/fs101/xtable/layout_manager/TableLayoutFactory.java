@@ -4,17 +4,17 @@ import static com.xebia.fs101.xtable.layout_manager.TableLayout.VERTICAL;
 
 public class TableLayoutFactory {
 
-    public LayoutManager getLayoutManager(TableLayout tableLayout, int rowCount, int colCount) {
+    public static LayoutTemplate getLayoutManager(TableLayout tableLayout, int rowCount, int colCount) {
         if (tableLayout == VERTICAL) {
-            return new VerticalLayoutManager(rowCount, colCount);
+            return new VerticalLayout(rowCount, colCount);
         }
-        return new HorizontalLayoutManager(rowCount, colCount);
+        return new HorizontalLayout(rowCount, colCount);
     }
 
-    public LayoutManager getLayoutManager(TableLayout tableLayout, int rowCount, int colCount, int[] colWidth) {
+    public static LayoutTemplate getLayoutManager(TableLayout tableLayout, int rowCount, int colCount, int[] colWidth) {
         if (tableLayout == VERTICAL) {
-            return new VerticalLayoutManager(rowCount, colCount, colWidth);
+            return new VerticalLayout(rowCount, colCount, colWidth);
         }
-        return new HorizontalLayoutManager(rowCount, colCount, colWidth);
+        return new HorizontalLayout(rowCount, colCount, colWidth);
     }
 }

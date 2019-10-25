@@ -1,24 +1,27 @@
 package com.xebia.fs101.xtable.layout_manager;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.xebia.fs101.xtable.layout_manager.TableConstants.*;
 
-public abstract class LayoutManager {
+public abstract class LayoutTemplate {
     protected int rowCount;
     protected int colCount;
     protected int[] columnWidths;
-    protected final int START_POSITION = 0;
-
-    public abstract String createTableWithHeadersOnly(String[] headers);
+    protected List<String[]> rows;
 
 
-    public abstract String createDataTable(List<String[]> rows);
-
-    public String createTable() {
-        validate();
-        return this.createTopLine() + this.createTableStructure() + this.createBottomLine();
+    public final String createTable(List<String[]> rows) {
+        rows= initializeRows(rows);
+        validate(rows);
+        return this.createTopLine() + this.createTableStructure(rows) + this.createBottomLine();
     }
+    protected abstract void validate(List<String[]> rows);
+    protected abstract String createTableStructure(List<String[]> rows);
+
+    protected abstract List<String[]> initializeRows(List<String[]> rows);
 
     protected String createTopLine() {
         StringBuilder top = new StringBuilder();
@@ -48,23 +51,6 @@ public abstract class LayoutManager {
         }
         bottom.append(BOTTOM_RIGHT);
         return bottom.toString();
-    }
-
-    protected String createTableStructure() {
-        StringBuilder tableData = new StringBuilder();
-        for (int i = 0; i < rowCount; i++) {
-            tableData.append("\n" + VERTICAL_SEPARATOR);
-            for (int j = 0; j < colCount; j++) {
-                for (int k = 0; k < columnWidths[j] - 1; k++) {
-                    tableData.append(SPACING_CHARACTERS);
-                }
-                tableData.append(VERTICAL_SEPARATOR);
-            }
-            if (i != rowCount - 1)
-                tableData.append(createRowSeparator());
-        }
-        return tableData.toString();
-
     }
 
     protected String createRowSeparator() {
@@ -105,13 +91,6 @@ public abstract class LayoutManager {
         return cellData;
     }
 
-    protected StringBuilder createCellWithoutData(int colWidth) {
-        StringBuilder builder = new StringBuilder();
-        builder.append(VERTICAL_SEPARATOR);
-        for (int i = 1; i <= colWidth - 1; i++)
-            builder.append(SPACING_CHARACTERS);
-        return builder;
-    }
     protected int[] initializeColWidths() {
         validate();
         columnWidths = new int[colCount];

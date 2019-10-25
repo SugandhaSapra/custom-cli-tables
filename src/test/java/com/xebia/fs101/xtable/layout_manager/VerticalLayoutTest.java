@@ -8,11 +8,12 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class VerticalLayoutManagerTest {
+public class VerticalLayoutTest {
     @Test
     public void should_create_table_empty_table_with_passed_rows_and_cols() {
-        LayoutManager verticalLayoutManager = new VerticalLayoutManager(2, 3);
-        String actualResult = verticalLayoutManager.createTable();
+        LayoutTemplate verticalLayoutTemplate = new VerticalLayout(2, 3);
+        List<String[]> rows=new ArrayList<>();
+        String actualResult = verticalLayoutTemplate.createTable(rows);
         String expectedResult =
                                 "┌───────────────────┬───────────────────┬───────────────────┐\n" +
                                 "│                   │                   │                   │\n" +
@@ -24,8 +25,9 @@ public class VerticalLayoutManagerTest {
 
     @Test
     public void should_create_empty_table_with_passed_rows_and_columns_and_custom__column_widths() {
-        LayoutManager verticalLayoutManager = new VerticalLayoutManager(2, 3, new int[]{10, 20, 30});
-        String actualResult = verticalLayoutManager.createTable();
+        LayoutTemplate verticalLayoutTemplate = new VerticalLayout(2, 3, new int[]{10, 20, 30});
+        List<String[]> rows=new ArrayList<>();
+        String actualResult = verticalLayoutTemplate.createTable(rows);
         String expectedResult =
                         "┌─────────┬───────────────────┬─────────────────────────────┐\n" +
                         "│         │                   │                             │\n" +
@@ -37,35 +39,39 @@ public class VerticalLayoutManagerTest {
 
     @Test
     public void should_create_table_with_header() {
-        VerticalLayoutManager verticalLayoutManager = new VerticalLayoutManager(2, 3, new int[]{10, 10, 10});
+        VerticalLayout verticalLayoutManager = new VerticalLayout(2, 3, new int[]{10, 10, 10});
         String[] cells = {"one", "two"};
-        String actualResult = verticalLayoutManager.createTableWithHeadersOnly(cells);
+        List<String[]> rows=new ArrayList<>();
+        rows.add(cells);
+        String actualResult = verticalLayoutManager.createTable(rows);
         String expectedResult =
                         "┌─────────┬─────────┬─────────┐\n" +
-                        "│ one     │         │         │\n" +
+                        "│ ONE     │         │         │\n" +
                         "├─────────┼─────────┼─────────┤\n" +
-                        "│ two     │         │         │\n" +
+                        "│ TWO     │         │         │\n" +
                         "└─────────┴─────────┴─────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
     public void should_create_table_with_header_and_custom_column_width() {
-        VerticalLayoutManager verticalLayoutManager = new VerticalLayoutManager(2, 3, new int[]{10, 20, 30});
+        VerticalLayout verticalLayoutManager = new VerticalLayout(2, 3, new int[]{10, 20, 30});
         String[] cells = {"one", "two"};
-        String actualResult = verticalLayoutManager.createTableWithHeadersOnly(cells);
+        List<String[]> rows=new ArrayList<>();
+        rows.add(cells);
+        String actualResult = verticalLayoutManager.createTable(rows);
         String expectedResult =
                         "┌─────────┬───────────────────┬─────────────────────────────┐\n" +
-                        "│ one     │                   │                             │\n" +
+                        "│ ONE     │                   │                             │\n" +
                         "├─────────┼───────────────────┼─────────────────────────────┤\n" +
-                        "│ two     │                   │                             │\n" +
+                        "│ TWO     │                   │                             │\n" +
                         "└─────────┴───────────────────┴─────────────────────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
     public void hould_create_table_with_data_rows() {
-        LayoutManager verticalLayoutManager = new VerticalLayoutManager(3, 4, new int[]{15, 15, 15, 15});
+        LayoutTemplate verticalLayoutTemplate = new VerticalLayout(3, 4, new int[]{15, 15, 15, 15});
         String[] headers = {"Name", "Marks", "Subject"};
         String[] row1 = {"Trump", "10", "Math"};
         String[] row2 = {"Obama", "40", "Math"};
@@ -75,14 +81,14 @@ public class VerticalLayoutManagerTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        String actualResult = verticalLayoutManager.createDataTable(tableData);
+        String actualResult = verticalLayoutTemplate.createTable(tableData);
         String expectedResult =
                         "┌──────────────┬──────────────┬──────────────┬──────────────┐\n" +
-                        "│ Name         │ Trump        │ Obama        │ Jamie        │\n" +
+                        "│ NAME         │ Trump        │ Obama        │ Jamie        │\n" +
                         "├──────────────┼──────────────┼──────────────┼──────────────┤\n" +
-                        "│ Marks        │ 10           │ 40           │ 60           │\n" +
+                        "│ MARKS        │ 10           │ 40           │ 60           │\n" +
                         "├──────────────┼──────────────┼──────────────┼──────────────┤\n" +
-                        "│ Subject      │ Math         │ Math         │ Math         │\n" +
+                        "│ SUBJECT      │ Math         │ Math         │ Math         │\n" +
                         "└──────────────┴──────────────┴──────────────┴──────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
 
@@ -90,7 +96,7 @@ public class VerticalLayoutManagerTest {
 
     @Test
     public void should_create_table_with_data_rows_and_custom_column_width() {
-        LayoutManager verticalLayoutManager = new VerticalLayoutManager(3, 4, new int[]{15, 10, 30, 20});
+        LayoutTemplate verticalLayoutTemplate = new VerticalLayout(3, 4, new int[]{15, 10, 30, 20});
         String[] headers = {"Name", "Marks", "Subject"};
         String[] row1 = {"Trump", "10", "Math"};
         String[] row2 = {"Obama", "40", "Math"};
@@ -100,28 +106,30 @@ public class VerticalLayoutManagerTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        String actualResult = verticalLayoutManager.createDataTable(tableData);
+        String actualResult = verticalLayoutTemplate.createTable(tableData);
         String expectedResult =
                         "┌──────────────┬─────────┬─────────────────────────────┬───────────────────┐\n" +
-                        "│ Name         │ Trump   │ Obama                       │ Jamie             │\n" +
+                        "│ NAME         │ Trump   │ Obama                       │ Jamie             │\n" +
                         "├──────────────┼─────────┼─────────────────────────────┼───────────────────┤\n" +
-                        "│ Marks        │ 10      │ 40                          │ 60                │\n" +
+                        "│ MARKS        │ 10      │ 40                          │ 60                │\n" +
                         "├──────────────┼─────────┼─────────────────────────────┼───────────────────┤\n" +
-                        "│ Subject      │ Math    │ Math                        │ Math              │\n" +
+                        "│ SUBJECT      │ Math    │ Math                        │ Math              │\n" +
                         "└──────────────┴─────────┴─────────────────────────────┴───────────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
     public void should_be_able_to_truncate_data_if_header_is_larger_as_compared_to_column_length() {
-        VerticalLayoutManager verticalLayoutManager = new VerticalLayoutManager(2, 3, new int[]{5, 5, 5});
+        VerticalLayout verticalLayoutManager = new VerticalLayout(2, 3, new int[]{5, 5, 5});
         String[] cells = {"three", "t"};
-        String actualResult = verticalLayoutManager.createTableWithHeadersOnly(cells);
+        List<String[]> rows=new ArrayList<>();
+        rows.add(cells);
+        String actualResult = verticalLayoutManager.createTable(rows);
         String expectedResult =
                         "┌────┬────┬────┐\n" +
-                        "│ t..│    │    │\n" +
+                        "│ T..│    │    │\n" +
                         "├────┼────┼────┤\n" +
-                        "│ t  │    │    │\n" +
+                        "│ T  │    │    │\n" +
                         "└────┴────┴────┘";
 
         assertThat(actualResult).isEqualTo(expectedResult);
@@ -130,7 +138,7 @@ public class VerticalLayoutManagerTest {
 
     @Test
     public void should_be_able_to_truncate_data_if_data_is_larger_as_compared_to_column_length() {
-        LayoutManager verticalLayoutManager = new VerticalLayoutManager(3, 4, new int[]{10, 5, 10, 10});
+        LayoutTemplate verticalLayoutTemplate = new VerticalLayout(3, 4, new int[]{10, 5, 10, 10});
         String[] headers = {"Name", "Marks", "Subject"};
         String[] row1 = {"Donald Trump", "10", "Mathematics"};
         String[] row2 = {"Obama", "40", "Mathematics"};
@@ -140,14 +148,14 @@ public class VerticalLayoutManagerTest {
         tableData.add(row1);
         tableData.add(row2);
         tableData.add(row3);
-        String actualResult = verticalLayoutManager.createDataTable(tableData);
+        String actualResult = verticalLayoutTemplate.createTable(tableData);
         String expectedResult =
                         "┌─────────┬────┬─────────┬─────────┐\n" +
-                        "│ Name    │ D..│ Obama   │ Jamie ..│\n" +
+                        "│ NAME    │ D..│ Obama   │ Jamie ..│\n" +
                         "├─────────┼────┼─────────┼─────────┤\n" +
-                        "│ Marks   │ 10 │ 40      │ 60      │\n" +
+                        "│ MARKS   │ 10 │ 40      │ 60      │\n" +
                         "├─────────┼────┼─────────┼─────────┤\n" +
-                        "│ Subject │ M..│ Mathem..│ Mathem..│\n" +
+                        "│ SUBJECT │ M..│ Mathem..│ Mathem..│\n" +
                         "└─────────┴────┴─────────┴─────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
 

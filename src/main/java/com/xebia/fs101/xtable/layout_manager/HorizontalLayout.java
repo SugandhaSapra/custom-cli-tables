@@ -23,9 +23,9 @@ public class HorizontalLayout extends LayoutTemplate {
 
      protected void validate(List<String[]> rows) {
         validate();
-        if (rows != null && rows.size() != rowCount)
+        if(rows != null && rows.size() != rowCount)
             throw new IllegalArgumentException("Please pass according to the number of rows");
-        if (rows != null) {
+        if(rows != null) {
             for (String cells[] : rows) {
                 if (cells.length != colCount)
                     throw new IllegalArgumentException("Please pass according to the number of rows");
@@ -34,7 +34,7 @@ public class HorizontalLayout extends LayoutTemplate {
     }
     protected List<String[]> initializeRows(List<String[]> rows)
     {
-        if (rows==null || rows.size() == 0) {
+        if(rows==null || rows.size() == 0) {
             rows=new ArrayList<>();
             for (int i = 0; i < rowCount; i++) {
                 String[] cols = new String[colCount];
@@ -61,7 +61,7 @@ public class HorizontalLayout extends LayoutTemplate {
 
         StringBuilder tableData = new StringBuilder();
         String currentData = null;
-        for (int i = 0; i < rowCount; i++) {
+        for (int i =0; i < rowCount; i++) {
             tableData.append("\n");
             for (int j = 0; j < colCount; j++) {
                 if (!(rows.get(i)[j].length() < columnWidths[j] - 1)) {
@@ -81,7 +81,7 @@ public class HorizontalLayout extends LayoutTemplate {
 
             }
             tableData.append(VERTICAL_SEPARATOR);
-            if (i != rowCount - 1)
+            if (i!= rowCount - 1)
                 tableData.append(createRowSeparator());
         }
         return tableData.toString();

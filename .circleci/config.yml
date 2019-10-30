@@ -6,9 +6,3 @@ jobs: # a collection of steps
     steps: # a collection of executable commands
       - checkout
       - run: ./mvnw clean install
-      - run: ./mvnw cobertura:cobertura
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
-codecov:
-  token: 608a6dc3-df64-4457-85d7-323314bf6992

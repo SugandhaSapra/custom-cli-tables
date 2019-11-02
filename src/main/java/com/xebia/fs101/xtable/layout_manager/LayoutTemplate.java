@@ -114,11 +114,18 @@ public abstract class LayoutTemplate {
     }
 
     int[] setColumnWidthToDefaultForLessThan5(int[] colWidth) {
-        for (int i = 0; i < colCount; i++) {
+        columnWidths = new int[colCount];
+        for (int i = 0; i < colWidth.length; i++) {
             if (colWidth[i] < 5)
-                colWidth[i] = MAX_COL_WIDTH;
+                columnWidths[i] = MAX_COL_WIDTH;
+            else
+                columnWidths[i] = colWidth[i];
         }
-        return colWidth;
+        if (colWidth.length <= colCount) {
+            for (int i = colWidth.length ; i < colCount ; i++)
+                columnWidths[i] = MAX_COL_WIDTH;
+        }
+        return columnWidths;
     }
 }
 

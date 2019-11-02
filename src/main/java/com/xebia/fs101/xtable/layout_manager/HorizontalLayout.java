@@ -28,7 +28,7 @@ public class HorizontalLayout extends LayoutTemplate {
         if (rows != null) {
             for (String[] cells : rows) {
                 if (cells.length != colCount)
-                    throw new IllegalArgumentException("Please pass according to the no of rows");
+                    throw new IllegalArgumentException("Please pass according to the no of cols");
             }
         }
     }

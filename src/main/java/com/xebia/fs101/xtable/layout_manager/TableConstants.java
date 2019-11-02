@@ -1,5 +1,6 @@
 package com.xebia.fs101.xtable.layout_manager;
 
+
 public final class TableConstants {
     public static final String VERTICAL_SEPARATOR = "│";
     public static final String TOP_LEFT = "┌";

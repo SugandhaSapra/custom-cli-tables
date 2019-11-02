@@ -303,7 +303,7 @@ public class TableTest {
         Table table = new Table.Builder().withRowCount(3).withColCount(3).withRows(tableData).withColumnWidth(new int[]{15, 15, 15}).withLayoutOption(HORIZONTAL).build();
         String actualResult = table.generate();
         String expectedResult =
-                        "┌──────────────┬──────────────┬──────────────┐\n" +
+                       "┌──────────────┬──────────────┬──────────────┐\n" +
                         "│ ONE          │ TWO          │ THREE        │\n" +
                         "├──────────────┼──────────────┼──────────────┤\n" +
                         "│ test         │ logic        │ user         │\n" +
@@ -312,5 +312,39 @@ public class TableTest {
                         "└──────────────┴──────────────┴──────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_if_colData_is_less_than_colCount_for_Vertical() {
+
+        String[] headers = {"Name", "Marks", "Subject"};
+        String[] row1 = {"Trump", "10", "Math"};
+        String[] row2 = {"Obama", "40", "Math"};
+        String[] row3 = {"Jamie", "60", "Math"};
+        List<String[]> tableData = new ArrayList<>();
+        tableData.add(headers);
+        tableData.add(row1);
+        tableData.add(row2);
+        tableData.add(row3);
+        Table table = new Table.Builder().withRowCount(2).withColCount(4).withRows(tableData).withLayoutOption(VERTICAL).build();
+        table.generate();
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_if_rowData_is_less_than_rowCount_for_Vertical() {
+
+        String[] headers = {"Name", "Marks", "Subject"};
+        String[] row1 = {"Trump", "10", "Math"};
+        String[] row2 = {"Obama", "40", "Math"};
+        String[] row3 = {"Jamie", "60", "Math"};
+        List<String[]> tableData = new ArrayList<>();
+        tableData.add(headers);
+        tableData.add(row1);
+        tableData.add(row2);
+        tableData.add(row3);
+        Table table = new Table.Builder().withRowCount(3).withColCount(2).withRows(tableData).withLayoutOption(VERTICAL).build();
+        table.generate();
+
+    }
+
 
 }

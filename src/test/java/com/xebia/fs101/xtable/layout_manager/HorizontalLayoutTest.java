@@ -16,9 +16,9 @@ public class HorizontalLayoutTest {
         List<String[]> rows=new ArrayList<>();
         String actualResult = horizontalLayoutTemplate.createTable(rows);
         String expectedResult =
-                                "┌───────────────────┬───────────────────┬───────────────────┐\n" +
-                                "│                   │                   │                   │\n" +
-                                "└───────────────────┴───────────────────┴───────────────────┘";
+                        "┌───────────────────┬───────────────────┬───────────────────┐\n" +
+                        "│                   │                   │                   │\n" +
+                        "└───────────────────┴───────────────────┴───────────────────┘";
         assertThat(actualResult).isEqualTo(expectedResult);
     }
 
@@ -150,16 +150,33 @@ public class HorizontalLayoutTest {
         tableData.add(row3);
         String actualResult = horizontalLayoutTemplate.createTable(tableData);
         String expectedResult =
-                        "┌─────────┬───────────────────┬─────────┐\n" +
-                        "│ TEST    │ LOGIC             │ USER    │\n" +
-                        "├─────────┼───────────────────┼─────────┤\n" +
-                        "│ assump..│ great             │ reflec..│\n" +
-                        "├─────────┼───────────────────┼─────────┤\n" +
-                        "│ flexible│ pleasant          │ wild    │\n" +
-                        "└─────────┴───────────────────┴─────────┘";
+                               "┌─────────┬───────────────────┬─────────┐\n" +
+                               "│ TEST    │ LOGIC             │ USER    │\n" +
+                               "├─────────┼───────────────────┼─────────┤\n" +
+                               "│ assump..│ great             │ reflec..│\n" +
+                               "├─────────┼───────────────────┼─────────┤\n" +
+                               "│ flexible│ pleasant          │ wild    │\n" +
+                               "└─────────┴───────────────────┴─────────┘";
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
+    @Test
+
+    public void should_create_empty_table_with_passed_rows_and_columns_with_custom_column_widths_and_should_set_to_default_for_some() {
+        LayoutTemplate horizontalLayoutTemplate = new HorizontalLayout(2, 3,new int[]{3,10});
+        List<String[]> rows=new ArrayList<>();
+        String actualResult = horizontalLayoutTemplate.createTable(rows);
+        String expectedResult=
+                       "┌───────────────────┬─────────┬───────────────────┐\n" +
+                       "│                   │         │                   │\n" +
+                       "├───────────────────┼─────────┼───────────────────┤\n" +
+                       "│                   │         │                   │\n" +
+                       "└───────────────────┴─────────┴───────────────────┘";
+        assertThat(actualResult).isEqualTo(expectedResult);
+
+    }
+
 
 
 }

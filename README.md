@@ -1,4 +1,4 @@
-# xTable
+# Custom-CLI-Tables
 
 [![codecov](https://codecov.io/gh/SugandhaSapra/xtable/branch/master/graph/badge.svg?token=U224d7dx98)](https://codecov.io/gh/SugandhaSapra/xtable)
 
@@ -29,9 +29,9 @@ To set up the project follow these steps :-
 
 4. Open the project in your favorite IDE
 
-### Using xTable
+### Using Custom-CLI-Tables
 
-To use xTable, follow these steps:
+To use Custom-CLI-Tables, follow these steps:
 
 1. Create a maven project
 

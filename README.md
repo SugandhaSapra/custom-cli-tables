@@ -49,8 +49,6 @@ To use Custom-CLI-Tables, follow these steps:
 
 3. Run `mvn install`
 
-4. Click [here]() for detailed documentation to APIs
-
 ### Contributors
 
 📖 [Nishant Madan](https://github.com/nishantmadan26)

@@ -38,9 +38,13 @@ To use Custom-CLI-Tables, follow these steps:
 2. Add  following to the pom.xml 
 
    `<dependency>`
+   
      `<groupId>com.xebia.fs101</groupId>`
+     
      `<artifactId>xtable</artifactId>`
+     
      `<version>1.0</version>`
+     
    `</dependency>`
 
 3. Run `mvn install`

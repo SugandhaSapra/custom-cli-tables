@@ -21,7 +21,7 @@ To set up the project follow these steps :-
 
 1. [Download](https://github.com/SugandhaSapra/xtable/archive/master.zip) and unzip the source repository or clone it using Git
 
-   ​	`git clone git@github.com:SugandhaSapra/xtable.git`
+   ​	`git clone git@github.com:SugandhaSapra/custom-cli-tables.git`
 
 2. cd into the xtable 
 
